@@ -2,13 +2,13 @@
   "name": "strasdom",
   "version": "0.0.1",
   "description": "",
-  "homepage": "https://github.com/wildcodeschool/strasdom#readme",
+  "homepage": "https://github.com/WildCodeSchool-2024-09/strasdom#readme",
   "bugs": {
-    "url": "https://github.com/wildcodeschool/strasdom/issues"
+    "url": "https://github.com/WildCodeSchool-2024-09/strasdom/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wildcodeschool/strasdom.git"
+    "url": "git+https://github.com/WildCodeSchool-2024-09/strasdom.git"
   },
   "workspaces": ["client", "server"],
   "scripts": {
