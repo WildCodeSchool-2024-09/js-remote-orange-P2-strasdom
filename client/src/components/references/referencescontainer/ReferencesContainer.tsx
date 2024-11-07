@@ -1,7 +1,7 @@
 // import React from "react";
 import CardReferences from "./cardreferences/cardreferences";
 
-import "./ReferencesContainer.css";
+import "./referencesContainer.css";
 
 function ReferencesContainer() {
   return (
