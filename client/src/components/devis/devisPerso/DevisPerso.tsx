@@ -1,4 +1,5 @@
 // import React from "react";
+import "./DevisPerso.css";
 
 const DevisPerso = () => {
   return (

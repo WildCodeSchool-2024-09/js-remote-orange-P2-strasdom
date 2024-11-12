@@ -1,4 +1,5 @@
 // import React from "react";
+import "./Coordonnees.css";
 
 const Coordonnees = () => {
   return (
