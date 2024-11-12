@@ -7,7 +7,7 @@ interface RecapitulatifServicesProps {
   ) => void;
 }
 
-// Exemple de données pour les services sélectionnés
+// Services test data
 const initialBasket = [
   {
     id: 1,

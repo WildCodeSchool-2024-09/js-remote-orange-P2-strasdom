@@ -26,13 +26,13 @@ const DevisPerso = ({ onPriceChange }: DevisPersoProps) => {
     if (selectedDays.includes("Dimanche")) {
       price *= sundaySurcharge;
     }
-    return price;
+    return Number.parseFloat(price.toFixed(2)); // Arrondir au centième
   }, [surface, selectedDays]);
 
   const calculateWeeklyPrice = useCallback(() => {
     const dailyPrice = calculatePrice();
     const numberOfDays = selectedDays.length;
-    return dailyPrice * numberOfDays;
+    return Number.parseFloat((dailyPrice * numberOfDays).toFixed(2)); // Arrondir au centième
   }, [calculatePrice, selectedDays]);
 
   useEffect(() => {
