@@ -1,1 +1,10 @@
 @import "src/App.css";
+
+.cardreferences {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #88593f;
+  margin: 0;
+  padding: 0;
+}

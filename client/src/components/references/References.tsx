@@ -5,9 +5,9 @@ import "./references.css";
 
 function References() {
   return (
-    <>
+    <div className="container">
       <ReferencesContainer />
-    </>
+    </div>
   );
 }
 

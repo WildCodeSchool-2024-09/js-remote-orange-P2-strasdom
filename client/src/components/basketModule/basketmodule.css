@@ -1,11 +1,14 @@
 @import "src/App.css";
 
-.container {
+.basket-module {
   display: flex;
-  flex-direction: column;
+  flex-direction: center;
   align-items: center;
   justify-content: center;
-  margin-top: 20px;
   border: 1px solid red;
+  background-color: var(--background-color);
   border-radius: 10px;
+  margin: 10;
+  padding: 0;
+  gap: 10;
 }
