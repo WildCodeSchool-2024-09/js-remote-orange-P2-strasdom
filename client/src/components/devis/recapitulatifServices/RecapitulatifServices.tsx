@@ -1,5 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./RecapitulatifServices.css";
+
+interface RecapitulatifServicesProps {
+  onServicesChange: (
+    services: { id: number; nom: string; tarif_horaire: number }[],
+  ) => void;
+}
 
 // Exemple de données pour les services sélectionnés
 const initialBasket = [
@@ -15,8 +21,14 @@ const initialBasket = [
   },
 ];
 
-const RecapitulatifServices = () => {
+const RecapitulatifServices = ({
+  onServicesChange,
+}: RecapitulatifServicesProps) => {
   const [basket, setBasket] = useState(initialBasket);
+
+  useEffect(() => {
+    onServicesChange(basket);
+  }, [basket, onServicesChange]);
 
   const removeService = (id: number) => {
     setBasket(basket.filter((service) => service.id !== id));

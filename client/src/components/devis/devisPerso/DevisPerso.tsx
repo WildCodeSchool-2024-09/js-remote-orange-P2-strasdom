@@ -1,35 +1,48 @@
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import "./DevisPerso.css";
 import DataAPI from "../DataAPI";
 
-const DevisPerso = () => {
+interface DevisPersoProps {
+  onPriceChange: (price: number) => void;
+}
+
+const DevisPerso = ({ onPriceChange }: DevisPersoProps) => {
   const [surface, setSurface] = useState(0);
   const [selectedDays, setSelectedDays] = useState<string[]>([]);
   const [startTime, setStartTime] = useState("00:00");
   const [endTime, setEndTime] = useState("00:00");
   const [startDate, setStartDate] = useState("");
 
-  const handleDayChange = (day: string) => {
-    setSelectedDays((prev) =>
-      prev.includes(day) ? prev.filter((d) => d !== day) : [...prev, day],
-    );
-  };
-
-  const calculatePrice = () => {
+  const calculatePrice = useCallback(() => {
     const basePrice =
       DataAPI.reduce(
         (total: number, service: { tarif_horaire: number }) =>
           total + service.tarif_horaire,
         0,
       ) / DataAPI.length; // Calculer le prix horaire moyen des services
-    const surfaceCoefficient = 1.1; // Exemple de coefficient pour la surface
     const sundaySurcharge = 1.6; // Majoration de 60% pour le dimanche
 
-    let price = basePrice * surfaceCoefficient ** surface;
+    let price = (surface / 20) * basePrice;
     if (selectedDays.includes("Dimanche")) {
       price *= sundaySurcharge;
     }
     return price;
+  }, [surface, selectedDays]);
+
+  const calculateWeeklyPrice = useCallback(() => {
+    const dailyPrice = calculatePrice();
+    const numberOfDays = selectedDays.length;
+    return dailyPrice * numberOfDays;
+  }, [calculatePrice, selectedDays]);
+
+  useEffect(() => {
+    onPriceChange(calculateWeeklyPrice());
+  }, [calculateWeeklyPrice, onPriceChange]);
+
+  const handleDayChange = (day: string) => {
+    setSelectedDays((prev) =>
+      prev.includes(day) ? prev.filter((d) => d !== day) : [...prev, day],
+    );
   };
 
   return (
@@ -97,7 +110,8 @@ const DevisPerso = () => {
         />
       </div>
       <div>
-        <h3>Prix estimé: {calculatePrice()}€</h3>
+        <h3>Prix estimé par jour: {calculatePrice()}€</h3>
+        <h3>Prix estimé par semaine: {calculateWeeklyPrice()}€</h3>
       </div>
     </div>
   );

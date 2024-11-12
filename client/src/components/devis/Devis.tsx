@@ -1,4 +1,3 @@
-// import React from "react";
 import { useState } from "react";
 import Confirmation from "./confirmation/Confirmation";
 import Coordonnees from "./coordonnees/Coordonnees";
@@ -8,6 +7,11 @@ import RetourIndex from "./retourIndex/RetourIndex";
 
 function Devis() {
   const [step, setStep] = useState<number>(1);
+  const [userInfo, setUserInfo] = useState<string>("");
+  const [selectedServices, setSelectedServices] = useState<
+    { id: number; nom: string; tarif_horaire: number }[]
+  >([]);
+  const [totalWeeklyPrice, setTotalWeeklyPrice] = useState<number>(0);
 
   function nextStep() {
     setStep(step + 1);
@@ -17,16 +21,38 @@ function Devis() {
     setStep(step - 1);
   }
 
+  function handleUserInfo(info: string) {
+    setUserInfo(info);
+  }
+
+  function handleSelectedServices(
+    services: { id: number; nom: string; tarif_horaire: number }[],
+  ) {
+    setSelectedServices(services);
+  }
+
+  function handleTotalWeeklyPrice(price: number) {
+    setTotalWeeklyPrice(price);
+  }
+
   function renderStepContent(step: number) {
     switch (step) {
       case 1:
-        return <RecapitulatifServices />;
+        return (
+          <RecapitulatifServices onServicesChange={handleSelectedServices} />
+        );
       case 2:
-        return <DevisPerso />;
+        return <DevisPerso onPriceChange={handleTotalWeeklyPrice} />;
       case 3:
-        return <Coordonnees />;
+        return <Coordonnees onUserInfoChange={handleUserInfo} />;
       case 4:
-        return <Confirmation />;
+        return (
+          <Confirmation
+            userInfo={userInfo}
+            selectedServices={selectedServices}
+            totalWeeklyPrice={totalWeeklyPrice}
+          />
+        );
       case 5:
         return <RetourIndex />;
       default:
