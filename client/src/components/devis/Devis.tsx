@@ -54,7 +54,13 @@ function Devis() {
           />
         );
       case 5:
-        return <RetourIndex />;
+        return (
+          <RetourIndex
+            userInfo={userInfo}
+            selectedServices={selectedServices}
+            totalWeeklyPrice={totalWeeklyPrice}
+          />
+        );
       default:
         return null;
     }
