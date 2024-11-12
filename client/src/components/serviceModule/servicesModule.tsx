@@ -10,13 +10,19 @@ interface Service {
   description: string;
   tarif_horaire: number;
   disponibilite: boolean;
+  numberOfHours: number;
 }
+
 function ServiceModule() {
   const [services, setServices] = useState<Service[]>([]);
 
+  const handleDataFetched = (data: Service[]) => {
+    setServices(data);
+  };
+
   return (
     <div className="container">
-      <DataAPIComponent onDataFetched={setServices} />
+      <DataAPIComponent onDataFetched={handleDataFetched} />
       <CardService services={services} />
       <BasketAddModule />
     </div>

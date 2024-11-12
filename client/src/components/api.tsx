@@ -6,6 +6,7 @@ interface Service {
   description: string;
   tarif_horaire: number;
   disponibilite: boolean;
+  numberOfHours: number;
 }
 
 const DataAPIComponent: React.FC<{
@@ -22,7 +23,11 @@ const DataAPIComponent: React.FC<{
           throw new Error(response.statusText);
         }
         const data = await response.json();
-        onDataFetched(data);
+        const servicesWithHours = data.map((service: Service) => ({
+          ...service,
+          numberOfHours: 0,
+        }));
+        onDataFetched(servicesWithHours);
       } catch (error) {
         setError((error as Error).message);
       } finally {

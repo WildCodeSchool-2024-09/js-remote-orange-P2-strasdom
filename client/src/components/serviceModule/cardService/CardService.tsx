@@ -1,15 +1,16 @@
 import type React from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import "./cardservice.css";
 
-interface Service {
+type Service = {
   id: number;
   nom: string;
   description: string;
   tarif_horaire: number;
   disponibilite: boolean;
-}
+  numberOfHours: number;
+};
 
 type Props = {
   services: Service[];
@@ -18,16 +19,31 @@ type Props = {
 const basket: Service[] = [];
 
 const CardService: React.FC<Props> = ({ services }) => {
-  const [numberOfHours, setNumberOfHours] = useState<number>(0);
+  const [servicesWithHours, setServicesWithHours] =
+    useState<Service[]>(services);
 
-  const handleAddHour = () => {
-    setNumberOfHours(numberOfHours + 1);
+  useEffect(() => {
+    setServicesWithHours(services);
+  }, [services]);
+
+  const handleAddHour = (id: number) => {
+    setServicesWithHours((prevServices) =>
+      prevServices.map((service) =>
+        service.id === id
+          ? { ...service, numberOfHours: service.numberOfHours + 1 }
+          : service,
+      ),
+    );
   };
 
-  const handleRemoveHour = () => {
-    if (numberOfHours > 0) {
-      setNumberOfHours(numberOfHours - 1);
-    }
+  const handleRemoveHour = (id: number) => {
+    setServicesWithHours((prevServices) =>
+      prevServices.map((service) =>
+        service.id === id && service.numberOfHours > 0
+          ? { ...service, numberOfHours: service.numberOfHours - 1 }
+          : service,
+      ),
+    );
   };
 
   const handleAddToBasket = (service: Service) => {
@@ -36,18 +52,18 @@ const CardService: React.FC<Props> = ({ services }) => {
 
   return (
     <div>
-      {services.map((service) => (
+      {servicesWithHours.map((service) => (
         <div key={service.id} className="card">
           <h2>Service: {service.nom}</h2>
           <p>Description: {service.description}</p>
           <p>Tarif: {service.tarif_horaire} €/h</p>
           <p>Disponibilité: {service.disponibilite ? "Oui" : "Non"}</p>
-          <p>Nombre d'heures: {numberOfHours}</p>
+          <p>Nombre d'heures: {service.numberOfHours}</p>
           <button
             type="button"
             className="button"
             id="AddingButton"
-            onClick={handleAddHour}
+            onClick={() => handleAddHour(service.id)}
           >
             Ajouter une heure
           </button>
@@ -55,7 +71,7 @@ const CardService: React.FC<Props> = ({ services }) => {
             type="button"
             className="button"
             id="DeleteButton"
-            onClick={handleRemoveHour}
+            onClick={() => handleRemoveHour(service.id)}
           >
             Retirer une heure
           </button>
