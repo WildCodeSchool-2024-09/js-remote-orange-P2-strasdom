@@ -24,22 +24,8 @@
   background-color: var(--background-color);
 }
 
-.container {
-  display: flex;
-  flex-direction: wrap;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid red;
-  background-color: #88593f;
-  border-radius: 10px;
-  margin: 10;
-  padding: 0;
-  gap: 10;
-}
-
-.card {
-  display: flex;
-  flex-direction: wrap;
+/* .container {
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   border: 1px solid red;
@@ -48,8 +34,24 @@
   margin: 10;
   padding: 0;
   gap: 10;
+  box-sizing: border-box;
 }
 
-.button {
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid red;
+  background-color: #ffe3c2;
   border-radius: 10px;
-}
+  margin: 10;
+  padding: 0;
+  gap: 10;
+  box-sizing: border-box;
+} */
+
+/* .button {
+  border-radius: 10px;
+  box-sizing: border-box;
+} */

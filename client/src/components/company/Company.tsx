@@ -8,7 +8,7 @@ function Company() {
       <div className="container">
         <div className="company">
           <div className="company__text">
-            <h2 className="company__title">NOTRE SOCIETE</h2>
+            <h2 className="company__title">A PROPOS DE NOUS</h2>
             <p className="company__description">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi
               natus consequuntur molestiae commodi suscipit culpa dolorem rerum

@@ -25,7 +25,6 @@ const DataAPIComponent: React.FC<{
         const data = await response.json();
         const servicesWithHours = data.map((service: Service) => ({
           ...service,
-          numberOfHours: 0,
         }));
         onDataFetched(servicesWithHours);
       } catch (error) {

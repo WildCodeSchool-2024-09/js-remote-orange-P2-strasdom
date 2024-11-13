@@ -1,8 +1,27 @@
 .header-container {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row; /* Aligner les éléments sur la même rangée */
   justify-content: center;
   background-color: #526224;
   margin: 0;
   padding: 0;
+}
+
+.header-content {
+  display: flex;
+  flex-direction: row; /* Aligner les éléments sur la même rangée */
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.header-content-left,
+.header-content-center,
+.header-content-right {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 100px;
 }

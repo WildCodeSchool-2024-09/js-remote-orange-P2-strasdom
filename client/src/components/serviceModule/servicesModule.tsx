@@ -1,7 +1,6 @@
 import { useState } from "react";
 import DataAPIComponent from "../api";
 import CardService from "../serviceModule/cardService/CardService";
-import BasketAddModule from "./basketAddModule/BasketAddModule";
 import "./servicesmodules.css";
 
 interface Service {
@@ -21,10 +20,9 @@ function ServiceModule() {
   };
 
   return (
-    <div className="container">
+    <div className="container" id="serviceModule">
       <DataAPIComponent onDataFetched={handleDataFetched} />
       <CardService services={services} />
-      <BasketAddModule />
     </div>
   );
 }
