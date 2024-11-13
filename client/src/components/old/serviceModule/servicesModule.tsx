@@ -13,7 +13,7 @@ interface Service {
   numberOfHours: number;
 }
 
-function ServiceModule() { 
+function ServiceModule() {
   const [services, setServices] = useState<Service[]>([]);
   // Déclaration de l'état services avec useState, initialisé à un tableau vide
 

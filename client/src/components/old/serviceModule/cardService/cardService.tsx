@@ -23,7 +23,8 @@ const basket: Service[] = [];
 // Définition du composant CardService en utilisant React.FC pour typer les propriétés
 const CardService: React.FC<Props> = ({ services }) => {
   // Déclaration de l'état servicesWithHours avec useState, initialisé avec les services passés en props
-  const [servicesWithHours, setServicesWithHours] = useState<Service[]>(services);
+  const [servicesWithHours, setServicesWithHours] =
+    useState<Service[]>(services);
 
   // Utilisation de useEffect pour mettre à jour l'état servicesWithHours lorsque les services en props changent
   useEffect(() => {
@@ -36,8 +37,8 @@ const CardService: React.FC<Props> = ({ services }) => {
       prevServices.map((service) =>
         service.id === id
           ? { ...service, numberOfHours: service.numberOfHours + 1 }
-          : service
-      )
+          : service,
+      ),
     );
   };
 
@@ -47,8 +48,8 @@ const CardService: React.FC<Props> = ({ services }) => {
       prevServices.map((service) =>
         service.id === id && service.numberOfHours > 0
           ? { ...service, numberOfHours: service.numberOfHours - 1 }
-          : service
-      )
+          : service,
+      ),
     );
   };
 
