@@ -1,6 +1,6 @@
 import type React from "react";
 import { useEffect, useState } from "react";
-
+import BasketAddModule from "../basketAddModule/BasketAddModule";
 import "./cardservice.css";
 
 type Service = {
@@ -16,8 +16,6 @@ type Props = {
   services: Service[];
 };
 
-const basket: Service[] = [];
-
 const CardService: React.FC<Props> = ({ services }) => {
   const [servicesWithHours, setServicesWithHours] =
     useState<Service[]>(services);
@@ -26,7 +24,11 @@ const CardService: React.FC<Props> = ({ services }) => {
     setServicesWithHours(services);
   }, [services]);
 
-  const handleAddHour = (id: number) => {
+  const handleAddHour = (
+    id: number,
+    event: React.MouseEvent<HTMLButtonElement>,
+  ) => {
+    event.preventDefault();
     setServicesWithHours((prevServices) =>
       prevServices.map((service) =>
         service.id === id
@@ -36,7 +38,11 @@ const CardService: React.FC<Props> = ({ services }) => {
     );
   };
 
-  const handleRemoveHour = (id: number) => {
+  const handleRemoveHour = (
+    id: number,
+    event: React.MouseEvent<HTMLButtonElement>,
+  ) => {
+    event.preventDefault();
     setServicesWithHours((prevServices) =>
       prevServices.map((service) =>
         service.id === id && service.numberOfHours > 0
@@ -44,10 +50,6 @@ const CardService: React.FC<Props> = ({ services }) => {
           : service,
       ),
     );
-  };
-
-  const handleAddToBasket = (service: Service) => {
-    basket.push(service);
   };
 
   return (
@@ -63,7 +65,7 @@ const CardService: React.FC<Props> = ({ services }) => {
             type="button"
             className="button"
             id="AddingButton"
-            onClick={() => handleAddHour(service.id)}
+            onClick={(event) => handleAddHour(service.id, event)}
           >
             Ajouter une heure
           </button>
@@ -71,18 +73,11 @@ const CardService: React.FC<Props> = ({ services }) => {
             type="button"
             className="button"
             id="DeleteButton"
-            onClick={() => handleRemoveHour(service.id)}
+            onClick={(event) => handleRemoveHour(service.id, event)}
           >
             Retirer une heure
           </button>
-          <button
-            type="button"
-            className="button"
-            id="AddToBasket"
-            onClick={() => handleAddToBasket(service)}
-          >
-            Ajouter au panier
-          </button>
+          <BasketAddModule service={service} />
         </div>
       ))}
     </div>

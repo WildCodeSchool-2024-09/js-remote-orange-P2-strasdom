@@ -1,42 +1,30 @@
 import { useEffect, useState } from "react";
+import { useServices } from "../../../context/ServicesContext";
 import "./RecapitulatifServices.css";
 
 interface RecapitulatifServicesProps {
   onServicesChange: (
-    services: { id: number; nom: string; tarif_horaire: number }[], // Déclaration de la fonction onServicesChange pour mettre à jour les services sélectionnés
+    services: { id: number; nom: string; tarif_horaire: number }[],
   ) => void;
 }
-
-// Services test data
-const initialBasket = [
-  // Initialisation du panier de services
-  {
-    id: 1,
-    nom: "Aide à Domicile",
-    tarif_horaire: 20,
-  },
-  {
-    id: 2,
-    nom: "Accompagnement aux Courses",
-    tarif_horaire: 15,
-  },
-];
 
 const RecapitulatifServices = ({
   onServicesChange,
 }: RecapitulatifServicesProps) => {
-  const [basket, setBasket] = useState(initialBasket); // Initialisation du panier de services
+  const { services } = useServices();
+  const [basket, setBasket] = useState(services);
 
   useEffect(() => {
     onServicesChange(basket);
-  }, [basket, onServicesChange]); // Mettre à jour les services sélectionnés
+  }, [basket, onServicesChange]);
 
   const removeService = (id: number) => {
-    setBasket(basket.filter((service) => service.id !== id)); // Retirer le service du panier
+    setBasket(basket.filter((service: { id: number }) => service.id !== id));
   };
 
   const totalTarifHoraire = basket.reduce(
-    (total, service) => total + service.tarif_horaire, // Ajouter le tarif horaire du service au total
+    (total: number, service: { tarif_horaire: number }) =>
+      total + service.tarif_horaire,
     0,
   );
 
@@ -45,15 +33,17 @@ const RecapitulatifServices = ({
       <h1>Étape 1</h1>
       <h2>Récapitulatif des services</h2>
       <ul>
-        {basket.map((service) => (
-          <li key={service.id}>
-            {service.nom} - {service.tarif_horaire}€/h
-            <button type="button" onClick={() => removeService(service.id)}>
-              {" "}
-              {/* Bouton pour retirer le service Retirer */}
-            </button>
-          </li>
-        ))}
+        {basket.map(
+          (service: { id: number; nom: string; tarif_horaire: number }) => (
+            <li key={service.id}>
+              {service.nom} - {service.tarif_horaire}€/h
+              <button type="button" onClick={() => removeService(service.id)}>
+                {" "}
+                {/* Bouton pour retirer le service Retirer */}
+              </button>
+            </li>
+          ),
+        )}
       </ul>
       <h3>Tarif Horaire: {totalTarifHoraire}€</h3>
     </div>

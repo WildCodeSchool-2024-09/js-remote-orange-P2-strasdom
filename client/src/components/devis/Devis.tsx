@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ServicesProvider } from "../../context/ServicesContext";
 import Confirmation from "./confirmation/Confirmation";
 import Coordonnees from "./coordonnees/Coordonnees";
 import DevisPerso from "./devisPerso/DevisPerso";
@@ -47,15 +48,15 @@ function Devis() {
     switch (step) {
       case 1:
         return (
-          <RecapitulatifServices onServicesChange={handleSelectedServices} /> // Appel du composant RecapitulatifServices avec la fonction handleSelectedServices
-        );
+          <RecapitulatifServices onServicesChange={handleSelectedServices} />
+        ); // Récupérer les services sélectionnés
       case 2:
-        return <DevisPerso onPriceChange={handleTotalWeeklyPrice} />; // Appel du composant DevisPerso avec la fonction handleTotalWeeklyPrice pour mettre à jour le prix total hebdomadaire
+        return <DevisPerso onPriceChange={handleTotalWeeklyPrice} />;
       case 3:
-        return <Coordonnees onUserInfoChange={handleUserInfo} />; // Appel du composant Coordonnees avec la fonction handleUserInfo pour mettre à jour les informations utilisateur
+        return <Coordonnees onUserInfoChange={handleUserInfo} />;
       case 4:
         return (
-          <Confirmation // Appel du composant Confirmation avec les informations utilisateur, les services sélectionnés et le prix total hebdomadaire pour confirmer le devis
+          <Confirmation
             userInfo={userInfo}
             selectedServices={selectedServices}
             totalWeeklyPrice={totalWeeklyPrice}
@@ -63,33 +64,35 @@ function Devis() {
         );
       case 5:
         return (
-          <RetourIndex // Appel du composant RetourIndex pour revenir à la page d'accueil après confirmation du devis
+          <RetourIndex
             userInfo={userInfo}
             selectedServices={selectedServices}
             totalWeeklyPrice={totalWeeklyPrice}
           />
         );
       default:
-        return null; // Retourner null par défaut si l'étape n'est pas définie pour éviter les erreurs
+        return null;
     }
   }
 
   return (
-    <div className="devis-container">
-      <div className="step-content">{renderStepContent(step)}</div>
-      <div className="navigation-buttons">
-        {step !== 1 && (
-          <button type="button" onClick={prevStep}>
-            Précédent
-          </button>
-        )}
-        {step !== 5 && (
-          <button type="button" onClick={nextStep}>
-            Suivant
-          </button>
-        )}
+    <ServicesProvider>
+      <div className="devis-container">
+        <div className="step-content">{renderStepContent(step)}</div>
+        <div className="navigation-buttons">
+          {step !== 1 && (
+            <button type="button" onClick={prevStep}>
+              Précédent
+            </button>
+          )}
+          {step !== 5 && (
+            <button type="button" onClick={nextStep}>
+              Suivant
+            </button>
+          )}
+        </div>
       </div>
-    </div>
+    </ServicesProvider>
   );
 }
 

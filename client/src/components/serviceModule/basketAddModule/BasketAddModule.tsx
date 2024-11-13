@@ -1,22 +1,31 @@
-// import React from "react";
+import type React from "react";
+import { useBasket } from "../../../context/BasketContext";
 import "./basketaddmodule.css";
 
-const basketdata = ["contenu de votre panier"]; // variable contenant la data du panier. A modifier après avec un context.
+const BasketAddModule = ({ service }: { service: Service }) => {
+  const { basket, setBasket } = useBasket();
 
-function BasketAddModule() {
+  const handleAddToBasket = (
+    service: Service,
+    event: React.MouseEvent<HTMLButtonElement>,
+  ) => {
+    event.preventDefault();
+    setBasket((prevBasket) => [...prevBasket, service]);
+  };
+
   return (
     <div>
       <div className="basketButtonModule">
         <button
           type="button"
           className="button"
-          onClick={() => basketdata.push}
+          onClick={(event) => handleAddToBasket(service, event)}
         >
           Ajouter au panier
         </button>
       </div>
     </div>
   );
-}
+};
 
 export default BasketAddModule;

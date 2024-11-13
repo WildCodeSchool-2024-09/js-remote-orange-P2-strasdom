@@ -20,7 +20,7 @@ const DataAPIComponent: React.FC<{
       try {
         const response = await fetch("https://api-strasdom.vercel.app/items");
         if (!response.ok) {
-          throw new Error(response.statusText);
+          throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
         const servicesWithHours = data.map((service: Service) => ({
