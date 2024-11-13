@@ -1,15 +1,17 @@
 import "./Confirmation.css";
 
 interface ConfirmationProps {
-  userInfo: string;
-  selectedServices: { id: number; nom: string; tarif_horaire: number }[];
-  totalWeeklyPrice: number;
+  // Déclaration de l'interface ConfirmationProps pour les propriétés du composant Confirmation
+  userInfo: string; // Déclaration des informations utilisateur
+  selectedServices: { id: number; nom: string; tarif_horaire: number }[]; // Déclaration des services sélectionnés
+  totalWeeklyPrice: number; // Déclaration du prix total hebdomadaire
 }
 
 const Confirmation = ({
+  // Déclaration du composant Confirmation
   userInfo,
   selectedServices,
-  totalWeeklyPrice,
+  totalWeeklyPrice, // Récupérer les informations utilisateur, les services sélectionnés et le prix total hebdomadaire
 }: ConfirmationProps) => {
   return (
     <div>

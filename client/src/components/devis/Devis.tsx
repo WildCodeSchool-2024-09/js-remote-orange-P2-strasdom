@@ -6,6 +6,7 @@ import RecapitulatifServices from "./recapitulatifServices/RecapitulatifServices
 import RetourIndex from "./retourIndex/RetourIndex";
 
 function Devis() {
+  // Déclaration du composant Devis
   const [step, setStep] = useState<number>(1);
   const [userInfo, setUserInfo] = useState<string>("");
   const [selectedServices, setSelectedServices] = useState<
@@ -14,40 +15,46 @@ function Devis() {
   const [totalWeeklyPrice, setTotalWeeklyPrice] = useState<number>(0);
 
   function nextStep() {
+    // Déclaration de la fonction nextStep pour passer à l'étape suivante
     setStep(step + 1);
   }
 
   function prevStep() {
+    // Déclaration de la fonction prevStep pour revenir à l'étape précédente
     setStep(step - 1);
   }
 
   function handleUserInfo(info: string) {
+    // Déclaration de la fonction handleUserInfo pour mettre à jour les informations utilisateur
     setUserInfo(info);
   }
 
   function handleSelectedServices(
+    // Déclaration de la fonction handleSelectedServices pour mettre à jour les services sélectionnés
     services: { id: number; nom: string; tarif_horaire: number }[],
   ) {
-    setSelectedServices(services);
+    setSelectedServices(services); // Mettre à jour les services sélectionnés
   }
 
   function handleTotalWeeklyPrice(price: number) {
+    // Déclaration de la fonction handleTotalWeeklyPrice pour mettre à jour le prix total hebdomadaire
     setTotalWeeklyPrice(price);
   }
 
   function renderStepContent(step: number) {
+    // Déclaration de la fonction renderStepContent récapitulant les étapes du devis
     switch (step) {
       case 1:
         return (
-          <RecapitulatifServices onServicesChange={handleSelectedServices} />
+          <RecapitulatifServices onServicesChange={handleSelectedServices} /> // Appel du composant RecapitulatifServices avec la fonction handleSelectedServices
         );
       case 2:
-        return <DevisPerso onPriceChange={handleTotalWeeklyPrice} />;
+        return <DevisPerso onPriceChange={handleTotalWeeklyPrice} />; // Appel du composant DevisPerso avec la fonction handleTotalWeeklyPrice pour mettre à jour le prix total hebdomadaire
       case 3:
-        return <Coordonnees onUserInfoChange={handleUserInfo} />;
+        return <Coordonnees onUserInfoChange={handleUserInfo} />; // Appel du composant Coordonnees avec la fonction handleUserInfo pour mettre à jour les informations utilisateur
       case 4:
         return (
-          <Confirmation
+          <Confirmation // Appel du composant Confirmation avec les informations utilisateur, les services sélectionnés et le prix total hebdomadaire pour confirmer le devis
             userInfo={userInfo}
             selectedServices={selectedServices}
             totalWeeklyPrice={totalWeeklyPrice}
@@ -55,14 +62,14 @@ function Devis() {
         );
       case 5:
         return (
-          <RetourIndex
+          <RetourIndex // Appel du composant RetourIndex pour revenir à la page d'accueil après confirmation du devis
             userInfo={userInfo}
             selectedServices={selectedServices}
             totalWeeklyPrice={totalWeeklyPrice}
           />
         );
       default:
-        return null;
+        return null; // Retourner null par défaut si l'étape n'est pas définie pour éviter les erreurs
     }
   }
 

@@ -2,18 +2,21 @@ import { useState } from "react";
 import "./Coordonnees.css";
 
 interface CoordonneesProps {
+  // Déclaration de l'interface CoordonneesProps pour les propriétés du composant Coordonnees
   onUserInfoChange: (info: string) => void;
 }
 
 const Coordonnees = ({ onUserInfoChange }: CoordonneesProps) => {
+  // Déclaration du composant Coordonnees
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
+    // Déclaration de la fonction handleSubmit pour gérer la soumission du formulaire
     e.preventDefault();
-    const userInfo = `Nom: ${name}, Email: ${email}, Téléphone: ${phone}, Adresse: ${address}`;
+    const userInfo = `Nom: ${name}, Email: ${email}, Téléphone: ${phone}, Adresse: ${address}`; // Créer une chaîne d'informations utilisateur
     onUserInfoChange(userInfo);
   };
 
@@ -28,7 +31,7 @@ const Coordonnees = ({ onUserInfoChange }: CoordonneesProps) => {
             <input
               type="text"
               value={name}
-              onChange={(e) => setName(e.target.value)}
+              onChange={(e) => setName(e.target.value)} // Mettre à jour le nom
             />
           </label>
         </div>
@@ -38,7 +41,7 @@ const Coordonnees = ({ onUserInfoChange }: CoordonneesProps) => {
             <input
               type="email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)} // Mettre à jour l'email
             />
           </label>
         </div>
@@ -48,7 +51,7 @@ const Coordonnees = ({ onUserInfoChange }: CoordonneesProps) => {
             <input
               type="tel"
               value={phone}
-              onChange={(e) => setPhone(e.target.value)}
+              onChange={(e) => setPhone(e.target.value)} // Mettre à jour le téléphone
             />
           </label>
         </div>
@@ -58,11 +61,13 @@ const Coordonnees = ({ onUserInfoChange }: CoordonneesProps) => {
             <input
               type="text"
               value={address}
-              onChange={(e) => setAddress(e.target.value)}
+              onChange={(e) => setAddress(e.target.value)} // Mettre à jour l'adresse
             />
           </label>
         </div>
-        <button type="submit">Soumettre</button>
+        <button type="submit">Soumettre</button>{" "}
+        {/* Bouton pour soumettre le
+        formulaire */}
       </form>
     </div>
   );
