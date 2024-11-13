@@ -1,9 +1,17 @@
-import type React from "react";
 import { useBasket } from "../../../context/BasketContext";
 import "./basketaddmodule.css";
 
+interface Service {
+  id: number;
+  nom: string;
+  description: string;
+  tarif_horaire: number;
+  disponibilite: boolean;
+  numberOfHours: number;
+}
+
 const BasketAddModule = ({ service }: { service: Service }) => {
-  const { basket, setBasket } = useBasket();
+  const { setBasket } = useBasket();
 
   const handleAddToBasket = (
     service: Service,

@@ -24,7 +24,9 @@ function ServiceModule() {
     <div className="container">
       <DataAPIComponent onDataFetched={handleDataFetched} />
       <CardService services={services} />
-      <BasketAddModule />
+      {services.map((service) => (
+        <BasketAddModule key={service.id} service={service} />
+      ))}
     </div>
   );
 }
