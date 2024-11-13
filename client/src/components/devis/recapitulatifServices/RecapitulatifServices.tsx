@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useBasket } from "../../../context/BasketContext";
 import "./RecapitulatifServices.css";
 
 interface RecapitulatifServicesProps {
@@ -7,25 +8,10 @@ interface RecapitulatifServicesProps {
   ) => void;
 }
 
-// Services test data
-const initialBasket = [
-  // Initialisation du panier de services
-  {
-    id: 1,
-    nom: "Aide à Domicile",
-    tarif_horaire: 20,
-  },
-  {
-    id: 2,
-    nom: "Accompagnement aux Courses",
-    tarif_horaire: 15,
-  },
-];
-
 const RecapitulatifServices = ({
   onServicesChange,
 }: RecapitulatifServicesProps) => {
-  const [basket, setBasket] = useState(initialBasket); // Initialisation du panier de services
+  const { basket, setBasket } = useBasket();
 
   useEffect(() => {
     onServicesChange(basket);

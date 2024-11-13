@@ -1,6 +1,6 @@
 import type React from "react";
 import { useEffect, useState } from "react";
-
+import { useBasket } from "../../../context/BasketContext";
 import "./cardservice.css";
 
 type Service = {
@@ -16,18 +16,17 @@ type Props = {
   services: Service[];
 };
 
-const basket: Service[] = [];
-
 const CardService: React.FC<Props> = ({ services }) => {
   const [servicesWithHours, setServicesWithHours] =
     useState<Service[]>(services);
+  const { setBasket } = useBasket();
 
   useEffect(() => {
     setServicesWithHours(services);
   }, [services]);
 
   const handleAddToBasket = (service: Service) => {
-    basket.push(service);
+    setBasket((prevBasket) => [...prevBasket, service]);
   };
 
   return (
