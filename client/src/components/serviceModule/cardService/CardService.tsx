@@ -26,7 +26,13 @@ const CardService: React.FC<Props> = ({ services }) => {
   }, [services]);
 
   const handleAddToBasket = (service: Service) => {
-    setBasket((prevBasket) => [...prevBasket, service]);
+    setBasket((prevBasket) => {
+      if (prevBasket.some((item) => item.id === service.id)) {
+        alert("Service déjà ajouté"); // Show alert if the service is already in the basket
+        return prevBasket; // If the service is already in the basket, return the current basket
+      }
+      return [...prevBasket, service]; // Otherwise, add the service to the basket
+    });
   };
 
   return (
