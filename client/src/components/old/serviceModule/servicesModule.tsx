@@ -1,9 +1,9 @@
 import { useState } from "react";
 import DataAPIComponent from "../api";
-import BasketAddModule from "./basketaddmodule/basketaddmodule";
 import CardService from "./cardService/cardService";
 import "./servicesmodules.css";
 
+// Définition de l'interface Service pour typer les objets service
 interface Service {
   id: number;
   nom: string;
@@ -13,10 +13,12 @@ interface Service {
   numberOfHours: number;
 }
 
-function ServiceModule() {
+function ServiceModule() { 
   const [services, setServices] = useState<Service[]>([]);
+  // Déclaration de l'état services avec useState, initialisé à un tableau vide
 
   const handleDataFetched = (data: Service[]) => {
+    // Fonction de rappel pour mettre à jour l'état services avec les données récupérées
     setServices(data);
   };
 
@@ -24,7 +26,6 @@ function ServiceModule() {
     <div className="container">
       <DataAPIComponent onDataFetched={handleDataFetched} />
       <CardService services={services} />
-      <BasketAddModule />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 function BasketAddModule() {
   return (
     <div>
-      <button type="button" />
+      <button type="button" />Ajouter au panier
     </div>
   );
 }
