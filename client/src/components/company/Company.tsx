@@ -1,4 +1,5 @@
 // import React from "react";
+import GoogleMaps from "./googlemaps/Maps";
 
 import "./company.css";
 
@@ -17,7 +18,7 @@ function Company() {
           animi expedita? Quas.
         </p>
         <div className="map">
-          <img src="/pictures/map.png" className="map" alt="map" />
+          <GoogleMaps />
         </div>
         <button type="button" className="button">
           Contactez-nous
