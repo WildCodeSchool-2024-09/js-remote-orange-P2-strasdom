@@ -12,17 +12,15 @@ function Footer() {
 
   return (
     <div className="footer-container">
-      <div className="footer-content">
-        <div className="footer-content-left">
-          <h1>Footer</h1>
-        </div>
-        <div className="footer-content-right">
-          <h1>Footer</h1>
-          <button type="button" onClick={navigateToBackOffice}>
-            Go to BackOffice
-          </button>
-        </div>
-      </div>
+      <button type="button" id="button" onClick={navigateToBackOffice}>
+        Go to BackOffice
+      </button>
+      <button type="button" id="button">
+        About Us
+      </button>
+      <button type="button" id="button">
+        Mentions Légales
+      </button>
     </div>
   );
 }
