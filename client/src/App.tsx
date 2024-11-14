@@ -13,9 +13,9 @@ function App() {
     <BasketProvider>
       <ReservationProvider>
         <Header />
-        <Company />
         <ServiceModule />
         <Devis />
+        <Company />
         <ReferencesCustomer />
         <Footer />
       </ReservationProvider>
