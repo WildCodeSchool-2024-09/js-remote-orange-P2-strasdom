@@ -11,23 +11,14 @@ import "./App.css";
 function App() {
   return (
     <BasketProvider>
-<<<<<<< HEAD
-      <Header />
-      <ServiceModule />
-      <Devis />
-      <ReferencesCustomer />
-      <Company />
-      <Footer />
-=======
       <ReservationProvider>
         <Header />
         <Company />
         <ServiceModule />
         <Devis />
-        <References />
+        <ReferencesCustomer />
         <Footer />
       </ReservationProvider>
->>>>>>> c8eacc919630a921043f9351f35fc540f0bd47aa
     </BasketProvider>
   );
 }
