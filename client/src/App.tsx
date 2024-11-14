@@ -5,17 +5,20 @@ import Header from "./components/header/Header";
 import References from "./components/references/References";
 import ServiceModule from "./components/serviceModule/servicesModule";
 import { BasketProvider } from "./context/BasketContext";
+import { ReservationProvider } from "./context/ReservationContext";
 import "./App.css";
 
 function App() {
   return (
     <BasketProvider>
-      <Header />
-      <Company />
-      <ServiceModule />
-      <Devis />
-      <References />
-      <Footer />
+      <ReservationProvider>
+        <Header />
+        <Company />
+        <ServiceModule />
+        <Devis />
+        <References />
+        <Footer />
+      </ReservationProvider>
     </BasketProvider>
   );
 }

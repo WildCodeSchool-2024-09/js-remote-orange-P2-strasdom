@@ -59,6 +59,7 @@ function Devis() {
             userInfo={userInfo}
             selectedServices={selectedServices}
             totalWeeklyPrice={totalWeeklyPrice}
+            onConfirm={() => setStep(5)} // Passer à l'étape 5 après confirmation
           />
         );
       case 5:
@@ -78,12 +79,12 @@ function Devis() {
     <div className="devis-container">
       <div className="step-content">{renderStepContent(step)}</div>
       <div className="navigation-buttons">
-        {step !== 1 && (
+        {step !== 1 && step !== 5 && (
           <button type="button" onClick={prevStep}>
             Précédent
           </button>
         )}
-        {step !== 5 && (
+        {step !== 4 && step !== 5 && (
           <button type="button" onClick={nextStep}>
             Suivant
           </button>

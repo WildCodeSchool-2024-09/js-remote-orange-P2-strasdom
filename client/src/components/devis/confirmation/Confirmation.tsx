@@ -1,10 +1,12 @@
 import "./Confirmation.css";
+import { useReservation } from "../../../context/ReservationContext";
 
 interface ConfirmationProps {
   // Déclaration de l'interface ConfirmationProps pour les propriétés du composant Confirmation
   userInfo: string; // Déclaration des informations utilisateur
   selectedServices: { id: number; nom: string; tarif_horaire: number }[]; // Déclaration des services sélectionnés
   totalWeeklyPrice: number; // Déclaration du prix total hebdomadaire
+  onConfirm: () => void; // Déclaration de la fonction onConfirm pour gérer la confirmation
 }
 
 const Confirmation = ({
@@ -12,7 +14,15 @@ const Confirmation = ({
   userInfo,
   selectedServices,
   totalWeeklyPrice, // Récupérer les informations utilisateur, les services sélectionnés et le prix total hebdomadaire
+  onConfirm, // Récupérer la fonction onConfirm
 }: ConfirmationProps) => {
+  const { addReservation } = useReservation();
+
+  const handleConfirm = () => {
+    addReservation({ userInfo, selectedServices, totalWeeklyPrice });
+    onConfirm(); // Appeler la fonction onConfirm après confirmation
+  };
+
   return (
     <div>
       <h1>Confirmation</h1>
@@ -35,6 +45,9 @@ const Confirmation = ({
         <h3>Prix total à la semaine</h3>
         <p>{totalWeeklyPrice}€</p>
       </div>
+      <button type="button" onClick={handleConfirm}>
+        Confirmer
+      </button>
     </div>
   );
 };
