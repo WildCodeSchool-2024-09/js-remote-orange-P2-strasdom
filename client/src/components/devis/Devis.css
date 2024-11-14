@@ -26,8 +26,8 @@
   gap: 10px;
 }
 
-.button {
+#button {
+  width: 100px;
   border-radius: 10px;
-  box-sizing: border-box;
-  border-color: black;
+  background-color: white;
 }

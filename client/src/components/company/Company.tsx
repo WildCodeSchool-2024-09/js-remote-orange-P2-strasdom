@@ -7,7 +7,7 @@ function Company() {
     <div className="containerAboutUS">
       <div className="company__text">
         <div className="company__logo">
-          <img src="/pictures/logo.jpg" className="logo" alt="logo" />
+          <img src="/pictures/logo.jpg" id="logo" alt="logo" />
         </div>
         <h2 className="company__title">A PROPOS DE NOUS</h2>
         <p className="company__description">

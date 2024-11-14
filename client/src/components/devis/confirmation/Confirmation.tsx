@@ -46,10 +46,10 @@ const Confirmation = ({
           <h3>Prix total à la semaine:</h3>
           <p>{totalWeeklyPrice}€</p>
         </div>
-      </div>
-      <button type="button" onClick={handleConfirm}>
+        <button type="button" id="button" onClick={handleConfirm}>
         Confirmer
       </button>
+      </div>
     </div>
   );
 };

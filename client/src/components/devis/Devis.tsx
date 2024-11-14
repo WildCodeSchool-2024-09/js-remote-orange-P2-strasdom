@@ -80,12 +80,12 @@ function Devis() {
       <div className="step-content">{renderStepContent(step)}</div>
       <div className="navigation-buttons">
         {step !== 1 && step !== 5 && (
-          <button type="button" onClick={prevStep}>
+          <button type="button" id="button" onClick={prevStep}>
             Précédent
           </button>
         )}
         {step !== 4 && step !== 5 && (
-          <button type="button" onClick={nextStep}>
+          <button type="button" id="button" onClick={nextStep}>
             Suivant
           </button>
         )}

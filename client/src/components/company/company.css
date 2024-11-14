@@ -1,7 +1,7 @@
 @import "../../App.css";
 
-.logo {
-  width: 100px;
+#logo {
+  width: 200px;
   border-radius: 10px;
   background-color: white;
 }
