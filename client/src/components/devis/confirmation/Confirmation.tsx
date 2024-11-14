@@ -19,7 +19,7 @@ const Confirmation = ({
   const { addReservation } = useReservation();
 
   const handleConfirm = () => {
-    addReservation({ userInfo, selectedServices, totalWeeklyPrice });
+    addReservation({ id: 0, userInfo, selectedServices, totalWeeklyPrice }); // Include ID
     onConfirm(); // Appeler la fonction onConfirm après confirmation
   };
 
