@@ -5,20 +5,44 @@ function Header() {
   return (
     <div className="header-container">
       <div className="header-content-left">
-        <figure>
-          <img src="/pictures/logo.jpg" className="logo" alt="logo" />
-        </figure>
+        <img src="/pictures/logo.jpg" className="logo" alt="logo" />
       </div>
       <div className="header-content-center">
-        <h1>STRASDOM</h1>
-        <ul>
-          <li>Nos services</li>
-          <li>Notre société</li>
-          <li>Nos références</li>
-        </ul>
-        <div className="header-content-right">
-          <h1>DEMANDER UN DEVIS</h1>
+        <h1 className="mainTitle">STRASDOM</h1>
+        <div className="header-content-center-bottom">
+          <li>
+            <a
+              href="client/src/components/serviceModule/servicesmodules.css"
+              className="menu"
+            >
+              Nos services
+            </a>
+            <a
+              href="client/src/components/company/Company.tsx"
+              className="menu"
+            >
+              Notre société
+            </a>
+            <a
+              href="client/src/components/references/References.tsx"
+              className="menu"
+            >
+              Nos références
+            </a>
+          </li>
         </div>
+      </div>
+      <div className="header-content-right">
+        <img
+          src="/pictures/call_button.png"
+          className="logo"
+          alt="callButton"
+        />
+        <img
+          src="/pictures/basket_button.png"
+          className="logo"
+          alt="basketButton"
+        />
       </div>
     </div>
   );

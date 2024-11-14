@@ -20,9 +20,12 @@ function ServiceModule() {
   };
 
   return (
-    <div className="container" id="serviceModule">
-      <DataAPIComponent onDataFetched={handleDataFetched} />
-      <CardService services={services} />
+    <div className="containerService">
+      <h1 className="title">Nos services</h1>
+      <div className="containerCard">
+        <DataAPIComponent onDataFetched={handleDataFetched} />
+        <CardService services={services} />
+      </div>
     </div>
   );
 }
