@@ -1,6 +1,6 @@
 import type React from "react";
 import { useEffect, useState } from "react";
-
+import { useBasket } from "../../../context/BasketContext";
 import "./cardservice.css";
 
 type Service = {
@@ -16,18 +16,23 @@ type Props = {
   services: Service[];
 };
 
-const basket: Service[] = [];
-
 const CardService: React.FC<Props> = ({ services }) => {
   const [servicesWithHours, setServicesWithHours] =
     useState<Service[]>(services);
+  const { setBasket } = useBasket();
 
   useEffect(() => {
     setServicesWithHours(services);
   }, [services]);
 
   const handleAddToBasket = (service: Service) => {
-    basket.push(service);
+    setBasket((prevBasket) => {
+      if (prevBasket.some((item) => item.id === service.id)) {
+        alert("Service déjà ajouté"); // Show alert if the service is already in the basket
+        return prevBasket; // If the service is already in the basket, return the current basket
+      }
+      return [...prevBasket, service]; // Otherwise, add the service to the basket
+    });
   };
 
   return (

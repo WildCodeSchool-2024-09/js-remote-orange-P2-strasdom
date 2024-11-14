@@ -4,7 +4,7 @@ import Coordonnees from "./coordonnees/Coordonnees";
 import DevisPerso from "./devisPerso/DevisPerso";
 import RecapitulatifServices from "./recapitulatifServices/RecapitulatifServices";
 import RetourIndex from "./retourIndex/RetourIndex";
-// import 'Devis.css';
+import "./Devis.css";
 
 function Devis() {
   // Déclaration du composant Devis
@@ -79,12 +79,12 @@ function Devis() {
       <div className="step-content">{renderStepContent(step)}</div>
       <div className="navigation-buttons">
         {step !== 1 && (
-          <button type="button" onClick={prevStep}>
+          <button type="button" className="button" onClick={prevStep}>
             Précédent
           </button>
         )}
         {step !== 5 && (
-          <button type="button" onClick={nextStep}>
+          <button type="button" className="button" onClick={nextStep}>
             Suivant
           </button>
         )}

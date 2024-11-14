@@ -1,13 +1,4 @@
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
-}
+@import "../../../App.css";
 
 button {
   background-color: var(--primary-color);
@@ -19,4 +10,16 @@ button {
 button:hover {
   background-color: var(--secondary-color);
   color: white;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: #88593f;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
 }

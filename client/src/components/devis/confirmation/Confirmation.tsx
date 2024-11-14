@@ -14,26 +14,28 @@ const Confirmation = ({
   totalWeeklyPrice, // Récupérer les informations utilisateur, les services sélectionnés et le prix total hebdomadaire
 }: ConfirmationProps) => {
   return (
-    <div>
-      <h1>Confirmation</h1>
-      <h2>Récapitulatif de la commande</h2>
-      <div>
-        <h3>Vos informations</h3>
-        <p>{userInfo}</p>
-      </div>
-      <div>
-        <h3>Services sélectionnés</h3>
-        <ul>
-          {selectedServices.map((service) => (
-            <li key={service.id}>
-              {service.nom} - {service.tarif_horaire}€/h
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div>
-        <h3>Prix total à la semaine</h3>
-        <p>{totalWeeklyPrice}€</p>
+    <div className="Coordonneesmodule">
+      <div className="card">
+        <h1>Confirmation</h1>
+        <h2>Récapitulatif de la commande</h2>
+        <div>
+          <h3>Vos informations:</h3>
+          <p>{userInfo}</p>
+        </div>
+        <div>
+          <h3>Services sélectionnés:</h3>
+          <ul>
+            {selectedServices.map((service) => (
+              <li key={service.id}>
+                {service.nom} - {service.tarif_horaire}€/h
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h3>Prix total à la semaine:</h3>
+          <p>{totalWeeklyPrice}€</p>
+        </div>
       </div>
     </div>
   );

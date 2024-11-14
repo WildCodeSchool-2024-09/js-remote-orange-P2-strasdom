@@ -55,76 +55,80 @@ const DevisPerso = ({ onPriceChange }: DevisPersoProps) => {
   };
 
   return (
-    <div>
-      <h1>Étape 2</h1>
-      <h2>Renseignez-nous</h2>
-      <div>
-        <label>
-          Surface (m²):
-          <input
-            type="number"
-            value={surface}
-            onChange={(e) => setSurface(Number(e.target.value))}
-          />
-        </label>
-      </div>
-      <div>
-        <h3>Fréquence</h3>
-        {[
-          "Lundi",
-          "Mardi",
-          "Mercredi",
-          "Jeudi",
-          "Vendredi",
-          "Samedi",
-          "Dimanche",
-        ].map((day) => (
-          <label key={day}>
+    <div className="containerDevis">
+      <div className="cardDevis">
+        <h1>Étape 2</h1>
+        <h2>Renseignez-nous</h2>
+        <div className="cardDevis-header">
+          <div>
+            <label>
+              Surface (m²):
+              <input
+                type="number"
+                value={surface}
+                onChange={(e) => setSurface(Number(e.target.value))}
+              />
+            </label>
+          </div>
+          <div>
+            <h3>Fréquence</h3>
+            {[
+              "Lundi",
+              "Mardi",
+              "Mercredi",
+              "Jeudi",
+              "Vendredi",
+              "Samedi",
+              "Dimanche",
+            ].map((day) => (
+              <label key={day}>
+                <input
+                  type="checkbox"
+                  value={day}
+                  checked={selectedDays.includes(day)} // Vérifier si le jour est sélectionné
+                  onChange={() => handleDayChange(day)} // Appeler la fonction handleDayChange
+                />
+                {day}
+              </label>
+            ))}
+          </div>
+          <div>
+            <h3>Plage horaire</h3>
+            <label>
+              Début:
+              <input
+                type="time"
+                value={startTime}
+                onChange={(e) => setStartTime(e.target.value)} // Mettre à jour l'heure de début
+              />
+            </label>
+            <label>
+              Fin:
+              <input
+                type="time"
+                value={endTime}
+                onChange={(e) => setEndTime(e.target.value)} // Mettre à jour l'heure de fin
+              />
+            </label>
+          </div>
+          <div>
+            <h3>Date de démarrage</h3>
             <input
-              type="checkbox"
-              value={day}
-              checked={selectedDays.includes(day)} // Vérifier si le jour est sélectionné
-              onChange={() => handleDayChange(day)} // Appeler la fonction handleDayChange
+              type="date"
+              id="startDate"
+              value={startDate}
+              onChange={(e) => setStartDate(e.target.value)} // Mettre à jour la date de démarrage
             />
-            {day}
-          </label>
-        ))}
-      </div>
-      <div>
-        <h3>Plage horaire</h3>
-        <label>
-          Début:
-          <input
-            type="time"
-            value={startTime}
-            onChange={(e) => setStartTime(e.target.value)} // Mettre à jour l'heure de début
-          />
-        </label>
-        <label>
-          Fin:
-          <input
-            type="time"
-            value={endTime}
-            onChange={(e) => setEndTime(e.target.value)} // Mettre à jour l'heure de fin
-          />
-        </label>
-      </div>
-      <div>
-        <h3>Date de démarrage</h3>
-        <input
-          type="date"
-          id="startDate"
-          value={startDate}
-          onChange={(e) => setStartDate(e.target.value)} // Mettre à jour la date de démarrage
-        />
-      </div>
-      <div>
-        <h3>Prix estimé par jour: {calculatePrice()}€</h3>{" "}
-        {/* Afficher le prix
+          </div>
+          <div>
+            <h3>Prix estimé par jour: {calculatePrice()}€</h3>{" "}
+            {/* Afficher le prix
         estimé par jour */}
-        <h3>Prix estimé par semaine: {calculateWeeklyPrice()}€</h3>{" "}
-        {/* Afficher
+            <h3>Prix estimé par semaine: {calculateWeeklyPrice()}€</h3>{" "}
+            {/* Afficher
         le prix estimé par semaine */}
+          </div>
+        </div>
       </div>
     </div>
   );
