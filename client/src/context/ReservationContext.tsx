@@ -9,8 +9,8 @@ interface Reservation {
 
 interface ReservationContextProps {
   reservations: Reservation[];
-  addReservation: (reservation: Reservation) => void; // Update addReservation to include ID
-  getReservationById: (id: number) => Reservation | undefined; // Add getReservationById method
+  addReservation: (reservation: Reservation) => void; // Ajout ID pour Reservation
+  getReservationById: (id: number) => Reservation | undefined; // Ajout de la fonction getReservationById
 }
 
 const ReservationContext = createContext<ReservationContextProps | undefined>(
@@ -29,16 +29,16 @@ export const ReservationProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [reservations, setReservations] = useState<Reservation[]>([]);
-  const [reservationId, setReservationId] = useState<number>(1); // Initialize reservationId
+  const [reservationId, setReservationId] = useState<number>(1); // Initialisation reservation
 
   const addReservation = (reservation: Reservation) => {
     const newReservation = { ...reservation, id: reservationId };
     setReservations((prev) => [...prev, newReservation]);
-    setReservationId((prev) => prev + 1); // Increment reservationId
+    setReservationId((prev) => prev + 1); // Incrément reservationId
   };
 
   const getReservationById = (id: number) => {
-    return reservations.find((reservation) => reservation.id === id);
+    return reservations.find((reservation) => reservation.id === id); // Récupérer la réservation par ID
   };
 
   return (
@@ -48,4 +48,4 @@ export const ReservationProvider: React.FC<{ children: React.ReactNode }> = ({
       {children}
     </ReservationContext.Provider>
   );
-}; // Création du composant ReservationProvider pour fournir le contexte ReservationContext
+};
