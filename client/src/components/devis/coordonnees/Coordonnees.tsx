@@ -66,7 +66,10 @@ const Coordonnees = ({ onUserInfoChange }: CoordonneesProps) => {
               />
             </label>
           </div>
-          <button type="submit" id="button" >Soumettre</button>{" "}
+          <button type="submit" id="button">
+            Soumettre
+          </button>
+          {""}
           {/* Bouton pour soumettre le
           formulaire */}
         </form>
