@@ -1,51 +1,31 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 
-interface Service {
-  id: number;
-  nom: string;
-  description: string;
-  tarif_horaire: number;
-  disponibilite: boolean;
-  numberOfHours: number;
-}
+// interface Service {
+//   id: number;
+//   nom: string;
+//   description: string;
+//   tarif_horaire: number;
+//   disponibilite: boolean;
+//   numberOfHours: number;
+// }
 
-const DataAPIComponent: React.FC<{
-  onDataFetched: (data: Service[]) => void;
-}> = ({ onDataFetched }) => {
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
+// const DataAPIComponent = () => {
+//   const [annonces, setAnnonces] = useState<Service[]>([]);
 
-  useEffect(() => {
-    const fetchServices = async () => {
-      try {
-        const response = await fetch("https://api-strasdom.vercel.app/items");
-        if (!response.ok) {
-          throw new Error(response.statusText);
-        }
-        const data = await response.json();
-        const servicesWithHours = data.map((service: Service) => ({
-          ...service,
-        }));
-        onDataFetched(servicesWithHours);
-      } catch (error) {
-        setError((error as Error).message);
-      } finally {
-        setLoading(false);
-      }
-    };
+//   useEffect(() => {
+//     fetch("https://api-strasdom.vercel.app/items", {
+//       method: "GET",
+//     })
+//       .then((response) => response.json())
+//       .then((data) => setAnnonces(data))
+//       .catch((error) => console.error(error));
+//   }, []);
 
-    fetchServices();
-  }, [onDataFetched]);
+//   return (
+//     <div>
+//       <h1>Nombre d'annonces: {Service}</h1>
+//     </div>
+//   );
+// };
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
-
-  return null;
-};
-
-export default DataAPIComponent;
+// export default DataAPIComponent;
