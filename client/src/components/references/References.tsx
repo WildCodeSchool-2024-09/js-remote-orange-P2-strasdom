@@ -9,9 +9,8 @@ const ReferenceProps = [
     client_id: 1,
     name: "Albedo N.",
     image: "/pictures/avatars/albedo.png",
-    commentaire:
-      "Très satisfait des services rendus, ponctuel et professionnel.",
-    avis: "4.5/5",
+    commentaire: "Ponctuel et professionnel mais pas suffisant pour Nazarick.",
+    avis: "3.5/5",
   },
   {
     client_id: 2,

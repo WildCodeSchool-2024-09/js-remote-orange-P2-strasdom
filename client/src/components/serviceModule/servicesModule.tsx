@@ -1,5 +1,4 @@
-import { useState } from "react";
-import DataAPIComponent from "../api";
+import { useEffect, useState } from "react";
 import CardService from "../serviceModule/cardService/CardService";
 import "./servicesmodules.css";
 
@@ -15,15 +14,19 @@ interface Service {
 function ServiceModule() {
   const [services, setServices] = useState<Service[]>([]);
 
-  const handleDataFetched = (data: Service[]) => {
-    setServices(data);
-  };
+  useEffect(() => {
+    fetch("https://api-strasdom.vercel.app/items", {
+      method: "GET",
+    })
+      .then((response) => response.json())
+      .then((data) => setServices(data))
+      .catch((error) => console.error(error));
+  }, []);
 
   return (
     <div className="containerService">
       <h1 className="title">Nos services</h1>
       <div className="containerCard">
-        <DataAPIComponent onDataFetched={handleDataFetched} />
         <CardService services={services} />
       </div>
     </div>
