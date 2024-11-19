@@ -1,9 +1,16 @@
 import { useState } from "react";
 import "./Coordonnees.css";
 
+export interface UserInfo {
+  name: string;
+  email: string;
+  phone: string;
+  address: string;
+}
+
 interface CoordonneesProps {
   // Déclaration de l'interface CoordonneesProps pour les propriétés du composant Coordonnees
-  onUserInfoChange: (info: string) => void;
+  onUserInfoChange: (info: UserInfo) => void;
 }
 
 const Coordonnees = ({ onUserInfoChange }: CoordonneesProps) => {
@@ -16,7 +23,7 @@ const Coordonnees = ({ onUserInfoChange }: CoordonneesProps) => {
   const handleSubmit = (e: React.FormEvent) => {
     // Déclaration de la fonction handleSubmit pour gérer la soumission du formulaire
     e.preventDefault();
-    const userInfo = `Nom: ${name}, Email: ${email}, Téléphone: ${phone}, Adresse: ${address}`; // Créer une chaîne d'informations utilisateur
+    const userInfo = { name, email, phone, address }; // Créer un objet d'informations utilisateur
     onUserInfoChange(userInfo);
   };
 

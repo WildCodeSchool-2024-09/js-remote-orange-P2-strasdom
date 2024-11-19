@@ -1,8 +1,9 @@
 import { createContext, useContext, useState } from "react";
+import type { UserInfo } from "../components/devis/coordonnees/Coordonnees";
 
 interface Reservation {
-  id: number; // Add ID to Reservation interface
-  userInfo: string;
+  id: number;
+  userInfo: UserInfo;
   selectedServices: { id: number; nom: string; tarif_horaire: number }[];
   totalWeeklyPrice: number;
 }

@@ -13,6 +13,7 @@ import App from "./App";
 
 // import About from "./pages/About";
 // import Contact from "./pages/Contact";
+import BackOffice from "./pages/backOffice/BackOffice"; // Update the import path for BackOffice
 
 /* ************************************************************************* */
 
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
   {
     path: "/", // The root path
     element: <App />, // Renders the App component for the home page
+  },
+  {
+    path: "/backoffice",
+    element: <BackOffice />, // Add the BackOffice route
   },
   // Try adding a new route! For example, "/about" with an About component
 ]);

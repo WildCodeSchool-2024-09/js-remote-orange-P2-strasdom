@@ -1,8 +1,9 @@
 import "./RetourIndex.css";
+import type { UserInfo } from "../coordonnees/Coordonnees";
 
 interface RetourIndexProps {
   // Déclaration de l'interface RetourIndexProps
-  userInfo: string;
+  userInfo: UserInfo;
   selectedServices: { id: number; nom: string; tarif_horaire: number }[]; // Déclaration des services sélectionnés
   totalWeeklyPrice: number;
 }
@@ -31,7 +32,10 @@ const RetourIndex = ({
         <h2>Merci pour votre confiance, voici le devis imprimable</h2>
         <div>
           <h3>Vos informations</h3>
-          <p>{userInfo}</p>
+          <p>Nom: {userInfo.name}</p>
+          <p>Email: {userInfo.email}</p>
+          <p>Téléphone: {userInfo.phone}</p>
+          <p>Adresse: {userInfo.address}</p>
         </div>
         <div>
           <h3>Services sélectionnés</h3>

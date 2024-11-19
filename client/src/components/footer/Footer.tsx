@@ -1,17 +1,19 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import "./footer.css";
 
 function Footer() {
   const [showPasswordDialog, setShowPasswordDialog] = useState(false);
   const [password, setPassword] = useState("");
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
   };
 
   const handlePasswordSubmit = () => {
-    if (password === "Goûter") {
-      window.location.href = "/backoffice"; // Navigate to BackOffice tab
+    if (password === "!admin") {
+      navigate("/backoffice"); // Use navigate to go to BackOffice
     } else {
       alert("La suite au prochain épisode...");
     }

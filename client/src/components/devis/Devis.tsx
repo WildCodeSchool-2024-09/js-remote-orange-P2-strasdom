@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Confirmation from "./confirmation/Confirmation";
-import Coordonnees from "./coordonnees/Coordonnees";
+import Coordonnees, { type UserInfo } from "./coordonnees/Coordonnees";
 import DevisPerso from "./devisPerso/DevisPerso";
 import RecapitulatifServices from "./recapitulatifServices/RecapitulatifServices";
 import RetourIndex from "./retourIndex/RetourIndex";
@@ -9,7 +9,12 @@ import "./Devis.css";
 function Devis() {
   // Déclaration du composant Devis
   const [step, setStep] = useState<number>(1);
-  const [userInfo, setUserInfo] = useState<string>("");
+  const [userInfo, setUserInfo] = useState<UserInfo>({
+    name: "",
+    email: "",
+    phone: "",
+    address: "",
+  });
   const [selectedServices, setSelectedServices] = useState<
     { id: number; nom: string; tarif_horaire: number }[]
   >([]);
@@ -25,7 +30,7 @@ function Devis() {
     setStep(step - 1);
   }
 
-  function handleUserInfo(info: string) {
+  function handleUserInfo(info: UserInfo) {
     // Déclaration de la fonction handleUserInfo pour mettre à jour les informations utilisateur
     setUserInfo(info);
   }
