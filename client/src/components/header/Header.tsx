@@ -1,4 +1,4 @@
-// import React from "react";
+import CTARecapServices from "../header/ctaRecapServices/ctaRecapServices";
 import "./header.css";
 
 function Header() {
@@ -33,16 +33,7 @@ function Header() {
         </div>
       </div>
       <div className="header-content-right">
-        <img
-          src="/pictures/call_button.png"
-          className="logo"
-          alt="callButton"
-        />
-        <img
-          src="/pictures/basket_button.png"
-          className="logo"
-          alt="basketButton"
-        />
+        <CTARecapServices />
       </div>
     </div>
   );
