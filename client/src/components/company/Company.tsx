@@ -1,6 +1,3 @@
-// import React from "react";
-import GoogleMaps from "./googlemaps/Maps";
-
 import "./company.css";
 
 function Company() {
@@ -17,9 +14,6 @@ function Company() {
           architecto odit unde esse sed quam illo, temporibus, ducimus mollitia,
           animi expedita? Quas.
         </p>
-        <div className="map">
-          <GoogleMaps />
-        </div>
         <button type="button" className="button">
           Contactez-nous
         </button>
