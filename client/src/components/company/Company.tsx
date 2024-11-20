@@ -37,7 +37,7 @@ const Company: React.FC = () => {
     >
       <div
         className="company__text"
-        style={{ maxWidth: "800px", margin: "0 auto" }}
+        style={{ maxWidth: "800px", margin: "10%", border: "1px solid black" }}
       >
         <div className="company__logo">
           <img
