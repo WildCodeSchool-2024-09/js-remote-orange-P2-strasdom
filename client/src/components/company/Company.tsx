@@ -154,9 +154,8 @@ const Company: React.FC = () => {
               une démarche humaine et chaleureuse.
             </p>
             <p className="company__description centered-text">
-              Notre identité visuelle, empreinte de vert forêt et de brun,
-              reflète nos valeurs :{" "}
-              <strong>le calme, la nature et l’harmonie</strong>.
+              Nous vous
+              <strong>&nbsp;remercions&nbsp;</strong> pour votre confiance.
             </p>
             <button
               type="button"
