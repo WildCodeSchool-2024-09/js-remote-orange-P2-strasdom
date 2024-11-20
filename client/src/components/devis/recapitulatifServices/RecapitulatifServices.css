@@ -1,0 +1,25 @@
+@import "../../../App.css";
+
+button {
+  background-color: var(--primary-color);
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: #88593f;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+}
