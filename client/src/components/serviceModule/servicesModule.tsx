@@ -27,7 +27,9 @@ function ServiceModule() {
     <div className="containerService">
       <h1 className="title">Nos services</h1>
       <div className="containerCard">
-        <CardService services={services} />
+        {services.map((service) => (
+          <CardService key={service.id} service={service} />
+        ))}
       </div>
     </div>
   );

@@ -13,6 +13,7 @@ interface Service {
 interface BasketContextProps {
   basket: Service[];
   setBasket: React.Dispatch<React.SetStateAction<Service[]>>;
+  removeFromBasket: (id: number) => void;
 }
 
 const BasketContext = createContext<BasketContextProps | undefined>(undefined);
@@ -30,8 +31,14 @@ export const BasketProvider: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   const [basket, setBasket] = useState<Service[]>([]);
 
+  const removeFromBasket = (id: number) => {
+    setBasket((prevBasket) =>
+      prevBasket.filter((service) => service.id !== id),
+    );
+  };
+
   return (
-    <BasketContext.Provider value={{ basket, setBasket }}>
+    <BasketContext.Provider value={{ basket, setBasket, removeFromBasket }}>
       {children}
     </BasketContext.Provider>
   );
