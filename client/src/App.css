@@ -23,25 +23,34 @@
   box-sizing: border-box;
 }
 
+/* Common Layout Patterns */
+.flex-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+/* Common Components */
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--primary-color);
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+}
+
 .container {
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: var(--container-color);
-  border-radius: 10px;
-  margin: 10px;
-  padding: 0;
-  gap: 10px;
-  box-sizing: border-box;
-}
-
-.card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid black;
-  background-color: var(--primary-color);
   border-radius: 10px;
   margin: 10px;
   padding: 0;
@@ -61,13 +70,12 @@
   background-color: white;
 }
 
+/* Header Styles */
 .header-container {
   display: flex;
   justify-content: space-around;
   align-items: center;
   background-color: var(--secondary-color);
-  margin: 0;
-  padding: 0;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
@@ -141,6 +149,7 @@
   }
 }
 
+/* Footer Styles */
 .footer-container {
   display: flex;
   justify-content: space-around;
@@ -349,4 +358,90 @@ h3 {
   text-align: left;
   margin: 0 2rem 0 15%;
   width: 100%;
+}
+
+/* Styles for CardService component */
+.cardService {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  background-color: #ffe3c2;
+  border-radius: 10px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+#AddToBasket {
+  border-radius: 10px;
+  box-sizing: border-box;
+  border-color: black;
+}
+
+.description {
+  margin-bottom: 5%;
+}
+
+.tarif {
+  margin-bottom: 1%;
+}
+
+.disponibilité {
+  margin-bottom: 1%;
+}
+
+/* References Styles */
+.containerReference {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--container-color);
+  border-radius: 10%;
+  margin: 10%;
+  padding: 10%;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+/* Dialog Styles */
+.dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dialog-content {
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    height: 10%;
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .logo {
+    width: 50px;
+  }
 }

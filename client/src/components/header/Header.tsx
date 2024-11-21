@@ -1,6 +1,5 @@
 import CTARecapServices from "../header/ctaRecapServices/ctaRecapServices";
-import "./header.css";
-
+import "../../App.css";
 function Header() {
   return (
     <div className="header-container">

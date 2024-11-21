@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
-import "./footer.css";
+import "../../App.css";
 
 function Footer() {
   const [showPasswordDialog, setShowPasswordDialog] = useState(false);

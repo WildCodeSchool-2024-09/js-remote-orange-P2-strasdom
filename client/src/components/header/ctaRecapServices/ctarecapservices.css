@@ -1,9 +1,9 @@
 @import "../../../App.css";
 
 .button {
-  background-color: none;
+  background-color: transparent;
 }
 
 .logo {
-  background-color: none;
+  background-color: transparent;
 }

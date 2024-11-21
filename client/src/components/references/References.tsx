@@ -2,7 +2,7 @@
 // import { StrictMode } from 'react'
 // import { createRoot } from 'react-dom/client'
 
-import "./references.css";
+import "../../App.css";
 
 const ReferenceProps = [
   {
