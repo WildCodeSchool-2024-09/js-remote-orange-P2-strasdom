@@ -1,5 +1,5 @@
-import "./RetourIndex.css";
 import type { UserInfo } from "../coordonnees/Coordonnees";
+import "../../../App.css";
 
 interface RetourIndexProps {
   // Déclaration de l'interface RetourIndexProps

@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import CardService from "../serviceModule/cardService/CardService";
-import "./servicesmodules.css";
+import "../../App.css";
+
+// ...existing code...
 
 interface Service {
   id: number;

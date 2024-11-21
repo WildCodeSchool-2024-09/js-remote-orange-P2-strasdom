@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import { useReservation } from "../../../context/ReservationContext";
-import "./TableauReservation.css"; // Import the CSS file
 
 const TableauReservations = () => {
   const { reservations } = useReservation();
@@ -11,7 +10,7 @@ const TableauReservations = () => {
   };
 
   return (
-    <div>
+    <div className="tableau-reservations">
       <h2>Tableau des Réservations</h2>
       <table>
         <thead>

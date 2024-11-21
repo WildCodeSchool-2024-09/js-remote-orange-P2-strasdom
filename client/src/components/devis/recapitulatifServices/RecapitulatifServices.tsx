@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useBasket } from "../../../context/BasketContext";
-import "./RecapitulatifServices.css";
+import "../../../App.css";
 
 interface RecapitulatifServicesProps {
   onServicesChange: (

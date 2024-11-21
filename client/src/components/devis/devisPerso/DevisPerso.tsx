@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import "./DevisPerso.css";
+import "../../../App.css";
 import DataAPI from "../DataAPI";
 
 interface DevisPersoProps {
