@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { useBasket } from "../../../context/BasketContext";
 import RecapitulatifServices from "../../devis/recapitulatifServices/RecapitulatifServices";
 import "./ctarecapservices.css";
 
 function CTARecapServices() {
   const [launchRecapServices, setLaunchRecapServices] = useState(false);
+  const { basket } = useBasket();
 
   const handleClick = () => {
     setLaunchRecapServices((prev) => !prev);
@@ -11,13 +13,11 @@ function CTARecapServices() {
 
   return (
     <div className="ctaBasket">
-      <img src="/pictures/call_button.png" className="logo" alt="callButton" />
-      <button type="button" onClick={handleClick}>
-        <img
-          src="/pictures/basket_button.png"
-          className="logo"
-          alt="BasketPics"
-        />
+      <a className="callbutton" href="tel:+33711223344" title="Appelez-nous">
+        Tel
+      </a>
+      <button type="button" className="basketbutton" onClick={handleClick}>
+        {basket.length}
       </button>
       {launchRecapServices && (
         <RecapitulatifServices onServicesChange={() => {}} />
