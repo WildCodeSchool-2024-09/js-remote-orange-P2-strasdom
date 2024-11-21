@@ -2,7 +2,8 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-
+import { BasketProvider } from "./context/BasketContext";
+import { ReservationProvider } from "./context/ReservationContext";
 /* ************************************************************************* */
 
 // Import the main app component
@@ -42,7 +43,11 @@ if (rootElement == null) {
 // Render the app inside the root element
 createRoot(rootElement).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <BasketProvider>
+      <ReservationProvider>
+        <RouterProvider router={router} />
+      </ReservationProvider>
+    </BasketProvider>
   </StrictMode>,
 );
 
