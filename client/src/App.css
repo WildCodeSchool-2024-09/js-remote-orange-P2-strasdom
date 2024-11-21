@@ -27,11 +27,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #88593f;
+  background-color: var(--container-color);
   border-radius: 10px;
-  margin: 10;
+  margin: 10px;
   padding: 0;
-  gap: 10;
+  gap: 10px;
   box-sizing: border-box;
 }
 
@@ -41,15 +41,312 @@
   align-items: center;
   justify-content: center;
   border: 1px solid black;
-  background-color: #ffe3c2;
+  background-color: var(--primary-color);
   border-radius: 10px;
-  margin: 10;
+  margin: 10px;
   padding: 0;
-  gap: 10;
+  gap: 10px;
   box-sizing: border-box;
 }
 
 .button {
   border-radius: 10px;
   box-sizing: border-box;
+  border-color: black;
+}
+
+#logo {
+  width: 200px;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--secondary-color);
+  margin: 0;
+  padding: 0;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    height: 10%;
+  }
+}
+
+.header-content-left,
+.header-content-center,
+.header-content-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--secondary-color);
+  margin: 10px;
+}
+.header-content-right {
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+}
+@media (max-width: 768px) {
+  .header-content-center {
+    height: 30px;
+  }
+}
+
+.logo,
+.callButton,
+.basketButton {
+  width: 100px;
+  border-radius: 10px;
+  background-color: white;
+}
+@media (max-width: 768px) {
+  .logo,
+  .callButton,
+  .basketButton {
+    width: 50px;
+  }
+}
+
+.mainTitle {
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+  background-color: var(--secondary-color);
+}
+
+.li {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+  gap: 0px;
+  color: white;
+  background-color: var(--secondary-color);
+}
+
+.menu {
+  color: white;
+  text-decoration: none;
+  background-color: var(--secondary-color);
+}
+@media (max-width: 768px) {
+  .menu {
+    display: none;
+  }
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--secondary-color);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  height: 100px;
+  width: 100%;
+}
+
+.password-dialog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.password-dialog-content {
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.password-dialog-content input {
+  padding: 10px;
+  font-size: 16px;
+}
+
+.password-dialog-content button {
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.Coordonneesmodule {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--container-color);
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+}
+
+#button {
+  width: 100px;
+  border-radius: 10px;
+  color: black;
+  border: 1px solid black;
+  background-color: white;
+}
+
+button {
+  background-color: var(--primary-color);
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.container .card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1%;
+  background-color: var(--container-color);
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+  width: 100%;
+  min-width: 147%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: var(--primary-color);
+  border-radius: 10px;
+}
+
+div {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input[type="number"],
+input[type="time"],
+input[type="date"] {
+  margin-left: 10px;
+}
+
+h3 {
+  margin-top: 20px;
+}
+
+.containerDevis,
+.cardDevis,
+.cardDevis-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--container-color);
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+}
+.cardDevis {
+  background-color: var(--primary-color);
+}
+.cardDevis-header {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.devis-container,
+.step-content,
+.navigation-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--container-color);
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+}
+.navigation-buttons {
+  flex-direction: row;
+  justify-content: center;
+}
+
+.containerAboutUS {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--container-color);
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+.company__text,
+.company__description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: blanchedalmond;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+  gap: 10px;
+}
+.company__description {
+  flex-wrap: wrap;
+}
+
+.company-container {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #2f4f4f;
+  text-align: center;
+}
+
+.company-card {
+  max-width: 800px;
+  margin: 10%;
+  border: 1px solid black;
+}
+
+.company-logo {
+  max-width: 100%;
+  height: auto;
+}
+
+.company-button {
+  background-color: #526224;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.company-button.centered-text {
+  margin-top: 20px;
+}
+
+.company-list-item {
+  text-align: left;
+  margin: 0 2rem 0 15%;
+  width: 100%;
 }

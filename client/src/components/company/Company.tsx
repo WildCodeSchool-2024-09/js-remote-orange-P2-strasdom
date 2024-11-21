@@ -1,6 +1,5 @@
 import type React from "react";
 import { useState } from "react";
-import "./company.css";
 
 const Company: React.FC = () => {
   const [showMore, setShowMore] = useState(false);
@@ -26,25 +25,14 @@ const Company: React.FC = () => {
   };
 
   return (
-    <div
-      className="containerAboutUS"
-      style={{
-        fontFamily: "Arial, sans-serif",
-        lineHeight: "1.6",
-        color: "#2F4F4F",
-        textAlign: "center",
-      }}
-    >
-      <div
-        className="company__text"
-        style={{ maxWidth: "800px", margin: "10%", border: "1px solid black" }}
-      >
+    <div className="containerAboutUS company-container">
+      <div className="company__text company-card">
         <div className="company__logo">
           <img
             src="/pictures/logo.jpg"
             id="logo"
             alt="logo"
-            style={{ maxWidth: "100%", height: "auto" }}
+            className="company-logo"
           />
         </div>
         {!showMore && (
@@ -59,19 +47,11 @@ const Company: React.FC = () => {
             <button
               type="button"
               onClick={handleToggle}
-              className="button"
+              className="button company-button"
               onMouseOver={handleMouseOver}
               onMouseOut={handleMouseOut}
               onFocus={handleMouseOver}
               onBlur={handleMouseOut}
-              style={{
-                backgroundColor: "#526224",
-                color: "#FFF",
-                border: "none",
-                padding: "10px 20px",
-                cursor: "pointer",
-                borderRadius: "5px",
-              }}
             >
               En savoir plus
             </button>
@@ -90,54 +70,24 @@ const Company: React.FC = () => {
               adaptés à vos besoins, qu’il s’agisse de :
             </p>
             <ul className="company__description centered-text">
-              <li
-                style={{
-                  textAlign: "left",
-                  margin: "0 2rem 0 15%",
-                  width: "100%",
-                }}
-              >
+              <li className="company-list-item">
                 <strong>Entretien du foyer :</strong> ménage, nettoyage de
                 printemps, aide au jardinage, petits travaux de bricolage.
               </li>
-              <li
-                style={{
-                  textAlign: "left",
-                  margin: "0 2rem 0 15%",
-                  width: "100%",
-                }}
-              >
+              <li className="company-list-item">
                 <strong>Accompagnement personnalisé :</strong> rendez-vous
                 médicaux, loisirs, aide administrative, soutien informatique.
               </li>
-              <li
-                style={{
-                  textAlign: "left",
-                  margin: "0 2rem 0 15%",
-                  width: "100%",
-                }}
-              >
+              <li className="company-list-item">
                 <strong>Soutien à la personne :</strong> soin et hygiène, aide
                 au lever et au coucher, assistance mobilité, prise de
                 médicaments.
               </li>
-              <li
-                style={{
-                  textAlign: "left",
-                  margin: "0 2rem 0 15%",
-                  width: "100%",
-                }}
-              >
+              <li className="company-list-item">
                 <strong>Aide familiale :</strong> garde d’enfants, soutien
                 scolaire, garde animalière.
               </li>
-              <li
-                style={{
-                  textAlign: "left",
-                  margin: "0 2rem 0 15%",
-                  width: "100%",
-                }}
-              >
+              <li className="company-list-item">
                 <strong>Bien-être :</strong> méditation, soins des pieds et des
                 mains.
               </li>
@@ -161,15 +111,6 @@ const Company: React.FC = () => {
               type="button"
               onClick={handleToggle}
               className="button centered-text"
-              style={{
-                backgroundColor: "#526224",
-                color: "#FFF",
-                border: "none",
-                padding: "10px 20px",
-                cursor: "pointer",
-                borderRadius: "5px",
-                marginTop: "20px",
-              }}
               onMouseOver={handleMouseOver}
               onMouseOut={handleMouseOut}
               onFocus={handleMouseOver}
