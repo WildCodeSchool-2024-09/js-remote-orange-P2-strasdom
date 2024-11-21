@@ -37,7 +37,7 @@ const Company: React.FC = () => {
     >
       <div
         className="company__text"
-        style={{ maxWidth: "800px", margin: "0 auto" }}
+        style={{ maxWidth: "800px", margin: "10%", border: "1px solid black" }}
       >
         <div className="company__logo">
           <img
@@ -81,52 +81,81 @@ const Company: React.FC = () => {
           <div>
             <h2 className="company__title">À propos de nous</h2>
             <p className="company__description">
-              Bienvenue chez <strong>StrasDom</strong>, votre allié pour un
-              quotidien plus serein.
+              Bienvenue chez <strong>&nbsp;StrasDom</strong>, votre allié pour
+              un quotidien plus serein.
             </p>
             <p className="company__description">
-              Nous proposons une{" "}
-              <strong>gamme complète de services à domicile</strong> adaptés à
-              vos besoins, qu’il s’agisse de :
+              Nous proposons une&nbsp;{" "}
+              <strong>gamme complète de services à domicile&nbsp;</strong>{" "}
+              adaptés à vos besoins, qu’il s’agisse de :
             </p>
             <ul className="company__description centered-text">
-              <li>
+              <li
+                style={{
+                  textAlign: "left",
+                  margin: "0 2rem 0 15%",
+                  width: "100%",
+                }}
+              >
                 <strong>Entretien du foyer :</strong> ménage, nettoyage de
                 printemps, aide au jardinage, petits travaux de bricolage.
               </li>
-              <li>
+              <li
+                style={{
+                  textAlign: "left",
+                  margin: "0 2rem 0 15%",
+                  width: "100%",
+                }}
+              >
                 <strong>Accompagnement personnalisé :</strong> rendez-vous
                 médicaux, loisirs, aide administrative, soutien informatique.
               </li>
-              <li>
+              <li
+                style={{
+                  textAlign: "left",
+                  margin: "0 2rem 0 15%",
+                  width: "100%",
+                }}
+              >
                 <strong>Soutien à la personne :</strong> soin et hygiène, aide
                 au lever et au coucher, assistance mobilité, prise de
                 médicaments.
               </li>
-              <li>
+              <li
+                style={{
+                  textAlign: "left",
+                  margin: "0 2rem 0 15%",
+                  width: "100%",
+                }}
+              >
                 <strong>Aide familiale :</strong> garde d’enfants, soutien
                 scolaire, garde animalière.
               </li>
-              <li>
+              <li
+                style={{
+                  textAlign: "left",
+                  margin: "0 2rem 0 15%",
+                  width: "100%",
+                }}
+              >
                 <strong>Bien-être :</strong> méditation, soins des pieds et des
                 mains.
               </li>
             </ul>
             <p className="company__description centered-text">
-              Nos services sont pensés pour{" "}
+              Nos services sont pensés pour&nbsp;{" "}
               <strong>simplifier votre quotidien</strong> tout en respectant
               votre environnement, vos habitudes et votre intimité.
             </p>
             <p className="company__description centered-text">
               Avec un engagement fort pour la{" "}
-              <strong>confiance, la discrétion et la sérénité</strong>, nos
-              équipes bienveillantes et qualifiées vous accompagnent dans une
-              démarche humaine et chaleureuse.
+              <strong>&nbsp;confiance, la discrétion et la sérénité,</strong>{" "}
+              nos équipes bienveillantes et qualifiées vous accompagnent dans
+              une démarche humaine et chaleureuse.
             </p>
             <p className="company__description centered-text">
-              Notre identité visuelle, empreinte de vert forêt et de brun,
-              reflète nos valeurs :{" "}
-              <strong>le calme, la nature et l’harmonie</strong>.
+              Nous vous
+              <strong>&nbsp;remercions&nbsp;</strong> pour votre confiance.
             </p>
             <button
               type="button"

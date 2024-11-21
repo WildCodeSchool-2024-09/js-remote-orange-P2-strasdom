@@ -17,3 +17,15 @@
   box-sizing: border-box;
   border-color: black;
 }
+
+.description {
+  margin-bottom: 5%;
+}
+
+.tarif {
+  margin-bottom: 1%;
+}
+
+.disponibilité {
+  margin-bottom: 1%;
+}
