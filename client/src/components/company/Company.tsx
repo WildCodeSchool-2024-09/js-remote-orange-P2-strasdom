@@ -27,8 +27,8 @@ const Company: React.FC = () => {
 
   return (
     <div className="containerAboutUS company-container">
-      <div className="company__text company-card">
-        <div className="company__logo">
+      <div className="company-text company-card">
+        <div className="company-logo">
           <img
             src="/pictures/logo.jpg"
             id="logo"
@@ -37,9 +37,9 @@ const Company: React.FC = () => {
           />
         </div>
         {!showMore && (
-          <div>
-            <h2 className="company__title">Présentation</h2>
-            <p className="company__description">
+          <div className="company-text">
+            <h2 className="company-title">Présentation</h2>
+            <p className="company-description">
               Découvrez une entreprise dédiée à votre bien-être au quotidien. De
               l’aide à domicile à l’accompagnement personnalisé, nous vous
               offrons des services sur mesure, réalisés avec respect, discrétion
@@ -59,18 +59,18 @@ const Company: React.FC = () => {
           </div>
         )}
         {showMore && (
-          <div>
-            <h2 className="company__title">À propos de nous</h2>
-            <p className="company__description">
+          <div className="company-text">
+            <h2 className="company-title">À propos de nous</h2>
+            <p className="company-description">
               Bienvenue chez <strong>&nbsp;StrasDom</strong>, votre allié pour
               un quotidien plus serein.
             </p>
-            <p className="company__description">
+            <p className="company-description">
               Nous proposons une&nbsp;{" "}
               <strong>gamme complète de services à domicile&nbsp;</strong>{" "}
               adaptés à vos besoins, qu’il s’agisse de :
             </p>
-            <ul className="company__description centered-text">
+            <ul className="company-description centered-text">
               <li className="company-list-item">
                 <strong>Entretien du foyer :</strong> ménage, nettoyage de
                 printemps, aide au jardinage, petits travaux de bricolage.
@@ -93,18 +93,18 @@ const Company: React.FC = () => {
                 mains.
               </li>
             </ul>
-            <p className="company__description centered-text">
+            <p className="company-description">
               Nos services sont pensés pour&nbsp;{" "}
               <strong>simplifier votre quotidien</strong> tout en respectant
               votre environnement, vos habitudes et votre intimité.
             </p>
-            <p className="company__description centered-text">
+            <p className="company-description">
               Avec un engagement fort pour la{" "}
               <strong>&nbsp;confiance, la discrétion et la sérénité,</strong>{" "}
               nos équipes bienveillantes et qualifiées vous accompagnent dans
               une démarche humaine et chaleureuse.
             </p>
-            <p className="company__description centered-text">
+            <p className="company-description">
               Nous vous
               <strong>&nbsp;remercions&nbsp;</strong> pour votre confiance.
             </p>
