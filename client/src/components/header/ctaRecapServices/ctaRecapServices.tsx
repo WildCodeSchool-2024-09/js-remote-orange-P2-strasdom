@@ -1,6 +1,6 @@
 import { useState } from "react";
 import RecapitulatifServices from "../../devis/recapitulatifServices/RecapitulatifServices";
-import "../../../App.css";
+import "./ctaRecapServices.css";
 
 function CTARecapServices() {
   const [launchRecapServices, setLaunchRecapServices] = useState(false);
@@ -10,14 +10,14 @@ function CTARecapServices() {
   };
 
   return (
-    <div className="ctaBasket">
-      <img src="/pictures/call_button.png" className="logo" alt="callButton" />
-      <button type="button" onClick={handleClick}>
-        <img
-          src="/pictures/basket_button.png"
-          className="logo"
-          alt="BasketPics"
-        />
+    <div className="cta-container">
+      <img
+        src="/pictures/call_button.png"
+        className="button-img"
+        alt="callButton"
+      />
+      <button type="button" className="button-basket" onClick={handleClick}>
+        <img src="/pictures/basket_button.png" alt="BasketPics" />
       </button>
       {launchRecapServices && (
         <RecapitulatifServices onServicesChange={() => {}} />
