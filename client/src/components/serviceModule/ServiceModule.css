@@ -1,0 +1,131 @@
+@import "../../App.css";
+
+/* Container principal */
+.containerService {
+  background-color: var(--background-color);
+  border-radius: 0px;
+  padding: 20px;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: white;
+  text-align: center;
+}
+
+/* Titre */
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #fff;
+  padding-bottom: 10px;
+}
+
+/* Container pour les cartes */
+.containerCard {
+  display: grid;
+  grid-template-rows: repeat(3, 270px); /* Légère augmentation de la hauteur */
+  grid-auto-columns: 320px; /* Légère augmentation de la largeur */
+  grid-auto-flow: column;
+  gap: 20px;
+  overflow-y: hidden;
+  overflow-x: auto;
+  padding: 20px;
+  scroll-snap-type: x mandatory;
+  height: 100%; /* Ajusté pour la nouvelle hauteur des rangées */
+}
+
+/* Style des barres de défilement */
+.containerCard::-webkit-scrollbar {
+  height: 8px;
+}
+
+.containerCard::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.containerCard::-webkit-scrollbar-thumb {
+  background: #658243;
+  border-radius: 4px;
+}
+
+.containerCard::-webkit-scrollbar-thumb:hover {
+  background: #4e3728;
+}
+
+/* Style de base des cartes */
+.cardService {
+  background-color: #fff;
+  color: #4e3728;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between; /* Distribution uniforme du contenu */
+  height: 100%;
+  width: 100%;
+}
+
+/* Titre de la carte */
+.cardService h2 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #658243; /* Couleur verte pour le titre */
+}
+
+/* Description, tarif et disponibilité */
+.cardService .description,
+.cardService .tarif,
+.cardService .disponibilité {
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+/* Bouton */
+.button {
+  align-self: center;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #658243; /* Vert */
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #4e3728; /* Marron foncé au survol */
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .containerCard {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .containerCard {
+    grid-auto-columns: 250px; /* Colonnes plus petites sur mobile */
+  }
+
+  .cardService h2 {
+    font-size: 1rem;
+  }
+
+  .button {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+}

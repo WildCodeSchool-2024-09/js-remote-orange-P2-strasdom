@@ -1,0 +1,124 @@
+@import "../../App.css";
+
+/* Container principal */
+.containerReference {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #a47659; /* Marron clair */
+  border-radius: 10px; /* Bordures arrondies moins prononcées */
+  margin: 2%; /* Marges réduites */
+  padding: 3%; /* Espacement réduit */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
+/* Avatar */
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 2px solid #ccc; /* Bord plus subtil */
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+/* Carte individuelle */
+.card {
+  align-items: center;
+  background-color: #333; /* Fond foncé */
+  color: #f5ebe3; /* Texte clair */
+  border-radius: 8px; /* Bordures arrondies légères */
+  padding: 15px;
+  text-align: center;
+  width: 240px; /* Largeur légèrement réduite */
+  height: 320px; /* Hauteur légèrement réduite */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Nom du client */
+.card h2 {
+  font-size: 1.2rem;
+  margin: 10px 0;
+  color: #ffd700; /* Jaune doré pour mettre en valeur le nom */
+}
+
+/* Commentaire */
+.card p:first-of-type {
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  color: #f5ebe3; /* Texte beige clair pour contraste */
+  font-style: italic;
+}
+
+/* Avis */
+.card p:last-of-type {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #ffd700; /* Avis en jaune doré pour cohérence */
+}
+
+/* Conteneur des cartes */
+.containerCard {
+  display: flex;
+  flex-wrap: nowrap; /* Empêche les cartes de passer à la ligne */
+  gap: 10px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  overflow-x: auto; /* Défilement horizontal */
+  padding: 10px;
+  background-color: #444; /* Fond plus discret derrière les cartes */
+  border-radius: 10px;
+  max-width: 100%; /* Limite la largeur au conteneur parent */
+}
+
+/* Styles pour la barre de défilement */
+.containerCard::-webkit-scrollbar {
+  height: 8px; /* Barre horizontale */
+}
+
+.containerCard::-webkit-scrollbar-thumb {
+  background: #888; /* Couleur du pouce de la barre de défilement */
+  border-radius: 4px;
+}
+
+.containerCard::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Couleur au survol */
+}
+
+.containerCard::-webkit-scrollbar-track {
+  background: #222; /* Fond de la barre de défilement */
+}
+
+/* Styles de la boîte de dialogue */
+.dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.dialog-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}

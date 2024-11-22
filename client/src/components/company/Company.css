@@ -1,0 +1,92 @@
+@import "./Company.css";
+
+/* Container principal */
+.company-container {
+  background-color: #a47659; /* Marron clair */
+  border-radius: 10px;
+  padding: 20px;
+  width: 90%;
+  margin: 0 auto;
+  max-width: 800px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: white;
+  text-align: center;
+}
+
+/* Logo de l'entreprise */
+.company-logo {
+  width: 100px;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+  border-radius: 50%;
+  border: 3px solid #fff;
+}
+
+/* Titre de la section */
+.company__title {
+  font-size: 1.8rem;
+  margin: 20px 0;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+/* Description */
+.company__description {
+  font-size: 1rem;
+  margin: 10px 0;
+  line-height: 1.5;
+  color: #f5ebe3; /* Couleur texte pour contraste */
+}
+
+/* Liste des services */
+.company-list-item {
+  margin: 8px 0;
+  text-align: left;
+  font-size: 0.95rem;
+  color: #fff;
+}
+
+/* Bouton général */
+.button {
+  background-color: #526224; /* Vert foncé */
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 15px 0;
+}
+
+/* Effets sur le bouton */
+.button:hover,
+.button:focus {
+  background-color: #2f4f4f; /* Gris foncé */
+}
+
+/* Texte centré pour les paragraphes */
+.centered-text {
+  text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .company-container {
+    padding: 15px;
+  }
+
+  .company__title {
+    font-size: 1.5rem;
+  }
+
+  .company__description {
+    font-size: 0.9rem;
+  }
+
+  .button {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+}

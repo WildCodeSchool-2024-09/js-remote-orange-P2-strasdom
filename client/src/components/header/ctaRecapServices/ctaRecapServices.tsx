@@ -1,6 +1,6 @@
 import { useState } from "react";
 import RecapitulatifServices from "../../devis/recapitulatifServices/RecapitulatifServices";
-import "./ctarecapservices.css";
+import "../../../App.css";
 
 function CTARecapServices() {
   const [launchRecapServices, setLaunchRecapServices] = useState(false);
