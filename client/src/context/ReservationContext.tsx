@@ -11,6 +11,8 @@ interface Reservation {
 interface ReservationContextProps {
   reservations: Reservation[];
   addReservation: (reservation: Reservation) => void;
+  updateReservation: (reservation: Reservation) => void;
+  deleteReservation: (id: number) => void;
   getReservationById: (id: number) => Reservation | undefined;
 }
 
@@ -47,13 +49,37 @@ export const ReservationProvider: React.FC<{ children: React.ReactNode }> = ({
     localStorage.setItem("reservationId", JSON.stringify(reservationId + 1));
   };
 
+  const updateReservation = (updatedReservation: Reservation) => {
+    const updatedReservations = reservations.map((reservation) =>
+      reservation.id === updatedReservation.id
+        ? updatedReservation
+        : reservation,
+    );
+    setReservations(updatedReservations);
+    localStorage.setItem("reservations", JSON.stringify(updatedReservations));
+  };
+
+  const deleteReservation = (id: number) => {
+    const updatedReservations = reservations.filter(
+      (reservation) => reservation.id !== id,
+    );
+    setReservations(updatedReservations);
+    localStorage.setItem("reservations", JSON.stringify(updatedReservations));
+  };
+
   const getReservationById = (id: number) => {
     return reservations.find((reservation) => reservation.id === id); // Récupérer la réservation par ID
   };
 
   return (
     <ReservationContext.Provider
-      value={{ reservations, addReservation, getReservationById }}
+      value={{
+        reservations,
+        addReservation,
+        updateReservation,
+        deleteReservation,
+        getReservationById,
+      }}
     >
       {children}
     </ReservationContext.Provider>
