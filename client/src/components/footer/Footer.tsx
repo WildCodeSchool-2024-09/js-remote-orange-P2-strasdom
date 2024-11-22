@@ -15,7 +15,7 @@ function Footer() {
     if (password === "!admin") {
       navigate("/backoffice"); // Use navigate to go to BackOffice
     } else {
-      alert("La suite au prochain épisode...");
+      alert("La suite au prochain épisode..");
     }
     setShowPasswordDialog(false);
     setPassword("");

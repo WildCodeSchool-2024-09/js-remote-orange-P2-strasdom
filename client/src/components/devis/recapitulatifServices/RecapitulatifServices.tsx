@@ -36,8 +36,7 @@ const RecapitulatifServices = ({
             <li key={service.id}>
               {service.nom} - {service.tarif_horaire}€/h
               <button type="button" onClick={() => removeService(service.id)}>
-                {" "}
-                {/* Bouton pour retirer le service Retirer */}
+                × {/* Bouton pour retirer le service Retirer */}
               </button>
             </li>
           ))}
