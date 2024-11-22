@@ -1,29 +1,33 @@
-import CTARecapServices from "../header/ctaRecapServices/ctaRecapServices";
+import { Link } from "react-router-dom";
+import CTARecapServices from "./ctaRecapServices/ctaRecapServices";
 import "./Header.css";
+
 function Header() {
   return (
-    <div className="header">
-      <img src="/pictures/logo.jpg" className="logo" alt="logo" />
+    <header className="header">
+      <img src="/pictures/logo.jpg" className="logo" alt="Strasdom logo" />
       <h1 className="mainTitle">STRASDOM</h1>
-      <li>
-        <a
-          href="client/src/components/serviceModule/servicesmodules.css"
-          className="menu"
-        >
-          Nos services
-        </a>
-        <a href="client/src/components/company/Company.tsx" className="menu">
-          Notre société
-        </a>
-        <a
-          href="client/src/components/references/References.tsx"
-          className="menu"
-        >
-          Nos références
-        </a>
-      </li>
+      <nav>
+        <ul className="nav-menu">
+          <li>
+            <Link to="/services" className="menu-item">
+              Nos services
+            </Link>
+          </li>
+          <li>
+            <Link to="/company" className="menu-item">
+              Notre société
+            </Link>
+          </li>
+          <li>
+            <Link to="/references" className="menu-item">
+              Nos références
+            </Link>
+          </li>
+        </ul>
+      </nav>
       <CTARecapServices />
-    </div>
+    </header>
   );
 }
 
