@@ -102,19 +102,19 @@
 }
 
 .button:hover {
-  background-color: #4e3728;
+  background-color: #43826d;
 }
 
 /* Nouveau style pour le bouton actif */
 .button.active {
-  background-color: #4e3728; /* Couleur brune */
+  background-color: #4e3728;
 }
 
 .button.active:hover {
-  background-color: #658243; /* Retour au vert au hover */
+  background-color: #658243;
 }
 
-/* Responsive Design */
+/* Responsive */
 @media (max-width: 1024px) {
   .containerCard {
     grid-template-rows: repeat(3, 270px);

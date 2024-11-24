@@ -1,9 +1,10 @@
 :root {
   --primary-color: #ffe3c2; /* Couleur principale */
   --secondary-color: #526224; /* Couleur secondaire */
-  --container-color: a47659; /* Couleur de conteneur */
+  --container-color: #444; /* Couleur de conteneur */
   --background-color: #a47659; /* Couleur du fond */
   --accent-color: #ac6526; /* Couleur d'accent */
+  --card-color: whitesmoke; /* Couleur des cartes */
   background-color: var(--background-color);
 }
 
