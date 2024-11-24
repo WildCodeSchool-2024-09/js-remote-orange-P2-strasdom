@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useReservation } from "../../../context/ReservationContext";
+import "./TableauReservations.css";
 
 const TableauReservations = () => {
   const { reservations } = useReservation();
