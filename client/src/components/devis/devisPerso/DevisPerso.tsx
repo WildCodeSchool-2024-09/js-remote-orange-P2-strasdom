@@ -42,11 +42,6 @@ const DevisPerso = ({ onPriceChange }: DevisPersoProps) => {
     const numberOfDays = selectedDays.length;
     return Number.parseFloat((dailyPrice * numberOfDays).toFixed(2));
   }, [calculatePrice, selectedDays]);
-
-  useEffect(() => {
-    onPriceChange(calculateWeeklyPrice());
-  }, [calculateWeeklyPrice, onPriceChange]);
-
   useEffect(() => {
     onPriceChange(calculateWeeklyPrice());
   }, [calculateWeeklyPrice, onPriceChange]);
