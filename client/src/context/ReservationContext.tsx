@@ -10,8 +10,10 @@ interface Reservation {
 
 interface ReservationContextProps {
   reservations: Reservation[];
-  addReservation: (reservation: Reservation) => void; // Ajout ID pour Reservation
-  getReservationById: (id: number) => Reservation | undefined; // Ajout de la fonction getReservationById
+  addReservation: (reservation: Reservation) => void;
+  updateReservation: (reservation: Reservation) => void;
+  deleteReservation: (id: number) => void;
+  getReservationById: (id: number) => Reservation | undefined;
 }
 
 const ReservationContext = createContext<ReservationContextProps | undefined>(
@@ -29,13 +31,40 @@ export const useReservation = () => {
 export const ReservationProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [reservations, setReservations] = useState<Reservation[]>([]);
-  const [reservationId, setReservationId] = useState<number>(1); // Initialisation reservation
+  const [reservations, setReservations] = useState<Reservation[]>(() => {
+    const savedReservations = localStorage.getItem("reservations");
+    return savedReservations ? JSON.parse(savedReservations) : [];
+  });
+  const [reservationId, setReservationId] = useState<number>(() => {
+    const savedReservationId = localStorage.getItem("reservationId");
+    return savedReservationId ? JSON.parse(savedReservationId) : 1;
+  });
 
   const addReservation = (reservation: Reservation) => {
     const newReservation = { ...reservation, id: reservationId };
-    setReservations((prev) => [...prev, newReservation]);
-    setReservationId((prev) => prev + 1); // Incrément reservationId
+    const updatedReservations = [...reservations, newReservation];
+    setReservations(updatedReservations);
+    setReservationId((prev) => prev + 1);
+    localStorage.setItem("reservations", JSON.stringify(updatedReservations));
+    localStorage.setItem("reservationId", JSON.stringify(reservationId + 1));
+  };
+
+  const updateReservation = (updatedReservation: Reservation) => {
+    const updatedReservations = reservations.map((reservation) =>
+      reservation.id === updatedReservation.id
+        ? updatedReservation
+        : reservation,
+    );
+    setReservations(updatedReservations);
+    localStorage.setItem("reservations", JSON.stringify(updatedReservations));
+  };
+
+  const deleteReservation = (id: number) => {
+    const updatedReservations = reservations.filter(
+      (reservation) => reservation.id !== id,
+    );
+    setReservations(updatedReservations);
+    localStorage.setItem("reservations", JSON.stringify(updatedReservations));
   };
 
   const getReservationById = (id: number) => {
@@ -44,7 +73,13 @@ export const ReservationProvider: React.FC<{ children: React.ReactNode }> = ({
 
   return (
     <ReservationContext.Provider
-      value={{ reservations, addReservation, getReservationById }}
+      value={{
+        reservations,
+        addReservation,
+        updateReservation,
+        deleteReservation,
+        getReservationById,
+      }}
     >
       {children}
     </ReservationContext.Provider>
