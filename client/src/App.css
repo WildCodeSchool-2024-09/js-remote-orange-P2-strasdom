@@ -1,9 +1,11 @@
 :root {
   --primary-color: #ffe3c2; /* Couleur principale */
   --secondary-color: #526224; /* Couleur secondaire */
-  --container-color: #88593f; /* Couleur de conteneur */
-  --background-color: #efd7c2; /* Couleur du fond */
+  --container-color: #444; /* Couleur de conteneur */
+  --background-color: #a47659; /* Couleur du fond */
   --accent-color: #ac6526; /* Couleur d'accent */
+  --card-color: whitesmoke; /* Couleur des cartes */
+  background-color: var(--background-color);
 }
 
 @font-face {
@@ -24,32 +26,5 @@
 }
 
 .container {
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: #88593f;
-  border-radius: 10px;
-  margin: 10;
-  padding: 0;
-  gap: 10;
-  box-sizing: border-box;
-}
-
-.card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid black;
-  background-color: #ffe3c2;
-  border-radius: 10px;
-  margin: 10;
-  padding: 0;
-  gap: 10;
-  box-sizing: border-box;
-}
-
-.button {
-  border-radius: 10px;
-  box-sizing: border-box;
+  background-color: #444;
 }

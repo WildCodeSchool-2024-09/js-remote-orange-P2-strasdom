@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useReservation } from "../../../context/ReservationContext";
 import Modal from "../Modal";
-import "./TableauReservation.css"; // Import the CSS file
+import "./TableauReservations.css";
 
 interface UserInfo {
   name: string;
@@ -91,7 +91,7 @@ const TableauReservations = () => {
   };
 
   return (
-    <div>
+    <div className="tableau-reservations">
       <h2>Tableau des Réservations</h2>
       <table>
         <thead>

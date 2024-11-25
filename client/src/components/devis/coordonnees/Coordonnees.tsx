@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "./Coordonnees.css";
 
 export interface UserInfo {
   name: string;

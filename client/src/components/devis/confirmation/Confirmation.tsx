@@ -1,4 +1,3 @@
-import "./Confirmation.css";
 import { useReservation } from "../../../context/ReservationContext";
 import type { UserInfo } from "../coordonnees/Coordonnees";
 

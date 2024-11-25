@@ -2,7 +2,7 @@
 // import { StrictMode } from 'react'
 // import { createRoot } from 'react-dom/client'
 
-import "./references.css";
+import "./References.css";
 
 const ReferenceProps = [
   {
@@ -80,20 +80,18 @@ const ReferenceProps = [
 function ReferencesCustomer() {
   return (
     <div className="containerReference">
-      <div className="containerCard">
-        <h1 className="title">Références clients</h1>
-        <ul>
-          {ReferenceProps.map((reference) => (
-            <div key={reference.client_id} className="containerCard">
-              <li className="card">
-                <img src={reference.image} alt="avatar" className="avatar" />
-                <h2>{reference.name}</h2>
-                <p>{reference.commentaire}</p>
-                <p>{reference.avis}</p>
-              </li>
-            </div>
-          ))}
-        </ul>
+      <h1 className="title">Références clients</h1>
+      <div className="cardsWrapper">
+        {ReferenceProps.map((reference) => (
+          <div key={reference.client_id} className="containerReferenceCard">
+            <li className="card">
+              <img src={reference.image} alt="avatar" className="avatar" />
+              <h2>{reference.name}</h2>
+              <p>{reference.commentaire}</p>
+              <p>{reference.avis}</p>
+            </li>
+          </div>
+        ))}
       </div>
     </div>
   );

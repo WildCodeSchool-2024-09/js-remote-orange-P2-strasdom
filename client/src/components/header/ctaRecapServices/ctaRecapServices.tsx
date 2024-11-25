@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useBasket } from "../../../context/BasketContext";
 import RecapitulatifServices from "../../devis/recapitulatifServices/RecapitulatifServices";
-import "./ctarecapservices.css";
+import "./ctaRecapServices.css";
 
 function CTARecapServices() {
   const [launchRecapServices, setLaunchRecapServices] = useState(false);

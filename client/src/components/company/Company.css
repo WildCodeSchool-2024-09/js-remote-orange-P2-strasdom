@@ -1,0 +1,108 @@
+@import "./Company.css";
+
+/* Container principal */
+.company-container {
+  background-color: #444; /* Marron clair */
+  border-radius: 10px;
+  padding: 20px;
+  width: 90%;
+  margin: 0 auto;
+  max-width: 800px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+.company-card {
+  background-color: whitesmoke;
+}
+
+/* Logo de l'entreprise */
+.company-logo {
+  width: 100px;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+  border-radius: 50%;
+  border: 3px solid #000000;
+}
+
+/* Titre de la section */
+.company-title {
+  font-size: 1.8rem;
+  margin: 20px 0;
+  color: #000000;
+  text-transform: uppercase;
+}
+
+/* Description */
+.company-text {
+  text-align: center;
+  width: 100%;
+}
+
+/* Description de l'entreprise */
+.company-description {
+  font-size: 1rem;
+  text-align: left;
+  margin: 10px 0;
+  line-height: 1.5;
+  margin-left: 2%;
+  margin-right: 2%;
+  color: #000000;
+}
+
+/* Texte centré pour la présentation */
+.company-text .company-description:first-of-type {
+  text-align: center;
+  padding: 0 20px;
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+/* Liste des services */
+.company-list-item {
+  margin: 8px 0;
+  margin-left: 1rem;
+  text-align: left;
+  font-size: 0.95rem;
+  color: #000000;
+}
+
+/* Bouton général */
+.button {
+  background-color: #526224; /* Vert foncé */
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 15px 0;
+}
+
+/* Effets sur le bouton */
+.button:hover,
+.button:focus {
+  background-color: #2f4f4f; /* Gris foncé */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .company-container {
+    padding: 15px;
+  }
+
+  .company-title {
+    font-size: 1.5rem;
+  }
+
+  .company-description {
+    font-size: 0.9rem;
+  }
+
+  .button {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+}

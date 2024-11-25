@@ -4,7 +4,6 @@ import Coordonnees, { type UserInfo } from "./coordonnees/Coordonnees";
 import DevisPerso from "./devisPerso/DevisPerso";
 import RecapitulatifServices from "./recapitulatifServices/RecapitulatifServices";
 import RetourIndex from "./retourIndex/RetourIndex";
-import "./Devis.css";
 
 function Devis() {
   // Déclaration du composant Devis
