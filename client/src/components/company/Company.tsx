@@ -1,5 +1,6 @@
-import type React from "react";
 import { useState } from "react";
+import type React from "react";
+import Maps from "./maps";
 import "./company.css";
 
 const Company: React.FC = () => {
@@ -177,6 +178,10 @@ const Company: React.FC = () => {
             >
               Revenir
             </button>
+            <div className="">
+              <h1>Nous trouver sur Strasbourg</h1>
+              <Maps />
+            </div>
           </div>
         )}
       </div>

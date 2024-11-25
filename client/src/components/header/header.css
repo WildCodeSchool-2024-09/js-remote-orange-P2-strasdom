@@ -53,7 +53,7 @@
 .basketButton {
   width: 100px;
   border-radius: 10px;
-  background-color: white;
+  /* background-color: white; */
 }
 @media (max-width: 768px) {
   .logo,
@@ -61,7 +61,7 @@
   .basketButton {
     width: 50px;
     border-radius: 10px;
-    background-color: white;
+    /* background-color: white; */
   }
 }
 
