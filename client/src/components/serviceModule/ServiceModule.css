@@ -30,6 +30,7 @@
   grid-auto-columns: 320px;
   grid-auto-flow: column;
   gap: 2%;
+  background-color: var(--container-color);
   align-content: center;
   overflow-y: hidden;
   overflow-x: auto;

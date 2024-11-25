@@ -61,20 +61,6 @@
   color: #ffd700;
 }
 
-/* Conteneur des cartes */
-.containerCard {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 10px;
-  justify-content: flex-start;
-  align-items: flex-start;
-  overflow-x: auto; /* Défilement horizontal */
-  padding: 10px;
-  background-color: #444; /* Fond plus discret derrière les cartes */
-  border-radius: 10px;
-  max-width: 100%;
-}
-
 /* Styles pour la barre de défilement */
 .containerCard::-webkit-scrollbar {
   height: 8px; /* Barre horizontale */
