@@ -14,6 +14,7 @@ function Devis() {
     phone: "",
     address: "",
   });
+
   const [selectedServices, setSelectedServices] = useState<
     { id: number; nom: string; tarif_horaire: number }[]
   >([]);

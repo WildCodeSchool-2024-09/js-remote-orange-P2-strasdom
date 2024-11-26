@@ -16,9 +16,11 @@ function CTARecapServices() {
       <a className="callbutton" href="tel:+33711223344" title="Appelez-nous">
         Tel
       </a>
-      <button type="button" className="basketbutton" onClick={handleClick}>
-        {basket.length}
-      </button>
+      <div className="basketArea">
+        <button type="button" className="basketbutton" onClick={handleClick}>
+          <div className="basketKPI">{basket.length}</div>
+        </button>
+      </div>
       {launchRecapServices && (
         <RecapitulatifServices onServicesChange={() => {}} />
       )}
