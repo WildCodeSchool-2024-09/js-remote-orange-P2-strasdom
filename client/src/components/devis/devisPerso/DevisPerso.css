@@ -1,0 +1,11 @@
+@import "../../../App.css";
+
+.surface-input {
+  margin-bottom: 20px;
+}
+
+.surface-field {
+  margin-left: 10px;
+  padding: 5px;
+  width: 100px;
+}
