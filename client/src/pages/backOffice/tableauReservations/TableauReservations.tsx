@@ -86,8 +86,8 @@ const TableauReservations = () => {
   };
 
   return (
-    <div className="tableau-reservations">
-      <h2>Tableau des Réservations</h2>
+    <div className="container">
+      <h2 className="tableauTitle">Tableau des Réservations</h2>
       <table>
         <thead>
           <tr>
@@ -155,7 +155,7 @@ const TableauReservations = () => {
 
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
         {editingReservation && (
-          <div>
+          <div className="container">
             <h2>Modifier la Réservation</h2>
             <label>
               Nom:

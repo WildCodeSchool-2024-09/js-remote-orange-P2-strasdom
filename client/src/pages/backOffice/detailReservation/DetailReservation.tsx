@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useReservation } from "../../../context/ReservationContext";
+import "./DetailReservation.css";
 
 const DetailReservation = () => {
   const { id } = useParams<{ id: string }>();
