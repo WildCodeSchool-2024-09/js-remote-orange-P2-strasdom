@@ -39,7 +39,9 @@ const Company: React.FC = () => {
         </div>
         {!showMore && (
           <div className="company-text">
-            <h2 className="company-title">Présentation</h2>
+            <h2 className="company-title" id="ourCompany">
+              Présentation
+            </h2>
             <p className="company-description">
               Découvrez une entreprise dédiée à votre bien-être au quotidien. De
               l’aide à domicile à l’accompagnement personnalisé, nous vous

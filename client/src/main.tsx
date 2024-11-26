@@ -5,22 +5,17 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import App from "./App";
 import { BasketProvider } from "./context/BasketContext";
 import { ReservationProvider } from "./context/ReservationContext";
-/* ************************************************************************* */
 import About from "./pages/about/About";
 import BackOffice from "./pages/backOffice/BackOffice";
 import DevisPages from "./pages/devis/DevisPages";
 import Legals from "./pages/legals/Legals";
-/* ************************************************************************* */
+
 // Create router configuration with routes
 // You can add more routes as you build out your app!
 const router = createBrowserRouter([
   {
     path: "/", // The root path
     element: <App />, // Renders the App component for the home page
-  },
-  {
-    path: "/about",
-    element: <About />,
   },
   {
     path: "/backoffice",
@@ -31,13 +26,14 @@ const router = createBrowserRouter([
     element: <DevisPages />, // Utiliser DevisPages pour la route Devis
   },
   {
-    path: "/legals",
-    element: <Legals />,
+    path: "/about",
+    element: <About />, // Add the About route
   },
-  // Try adding a new route! For example, "/about" with an About component
+  {
+    path: "/legals",
+    element: <Legals />, // Add the Legals route
+  },
 ]);
-
-/* ************************************************************************* */
 
 // Find the root element in the HTML document
 const rootElement = document.getElementById("root");
