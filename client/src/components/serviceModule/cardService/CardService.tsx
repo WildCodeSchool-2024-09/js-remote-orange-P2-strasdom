@@ -1,6 +1,7 @@
 import type React from "react";
 import { useBasket } from "../../../context/BasketContext";
 import "../../../App.css";
+import "../ServiceModule.css";
 
 type Service = {
   id: number;

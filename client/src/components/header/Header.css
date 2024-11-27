@@ -9,6 +9,14 @@
   padding: 15px;
 }
 
+.subTitle {
+  color: white;
+  font-size: 150%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
 .logo {
   width: 100px;
   border-radius: 10px;
@@ -56,5 +64,11 @@
     align-items: center;
     padding: 10px;
     gap: 15px;
+  }
+  .hiddenHeader {
+    display: none;
+  }
+  .nav-menu {
+    display: none;
   }
 }

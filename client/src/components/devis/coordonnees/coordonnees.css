@@ -1,0 +1,31 @@
+@import "../../../App.css";
+
+.Coordonneesmodule {
+  background-color: #fff;
+  color: #4e3728;
+  padding: 3%;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  width: 100%;
+}
+
+.cardmodule {
+  border-radius: 10px;
+  padding: 20px;
+  width: 90%;
+  margin: 0 auto;
+  max-width: 800px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+
+#progressBar {
+  display: flex;
+  align-items: left;
+}
