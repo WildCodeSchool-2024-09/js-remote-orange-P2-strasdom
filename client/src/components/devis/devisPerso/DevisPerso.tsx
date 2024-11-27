@@ -1,15 +1,6 @@
+import "./DevisPerso.css";
 import { useCallback, useEffect, useState } from "react";
-import "../../../App.css";
-
-// Add interface for service structure
-interface Service {
-  tarif_horaire: number;
-  // Add other properties if needed
-}
-
-// Update import with type annotation
-import services from "../../serviceModule/servicesModule";
-const servicesArray: Service[] = Array.isArray(services) ? services : [];
+import { useBasket } from "../../../context/BasketContext";
 
 interface DevisPersoProps {
   onPriceChange: (price: number) => void;
@@ -18,110 +9,148 @@ interface DevisPersoProps {
 const DevisPerso = ({ onPriceChange }: DevisPersoProps) => {
   const [surface, setSurface] = useState(0);
   const [selectedDays, setSelectedDays] = useState<string[]>([]);
-  const [startTime, setStartTime] = useState("00:00");
-  const [endTime, setEndTime] = useState("00:00");
-  const [startDate, setStartDate] = useState("");
+  const [serviceHours, setServiceHours] = useState<{ [key: number]: number }>(
+    {},
+  );
+  const { basket } = useBasket();
 
-  const calculatePrice = useCallback(() => {
-    const basePrice =
-      servicesArray.reduce(
-        (total: number, service: Service) => total + service.tarif_horaire,
-        0,
-      ) / (servicesArray.length || 1); // Prevent division by zero
-    const sundaySurcharge = 1.6;
+  const SUNDAY_SURCHARGE = 1.6;
 
-    let price = (surface / 20) * basePrice;
-    if (selectedDays.includes("Dimanche")) {
-      price *= sundaySurcharge;
-    }
-    return Number.parseFloat(price.toFixed(2));
-  }, [surface, selectedDays]);
-
-  const calculateWeeklyPrice = useCallback(() => {
-    const dailyPrice = calculatePrice();
-    const numberOfDays = selectedDays.length;
-    return Number.parseFloat((dailyPrice * numberOfDays).toFixed(2));
-  }, [calculatePrice, selectedDays]);
-  useEffect(() => {
-    onPriceChange(calculateWeeklyPrice());
-  }, [calculateWeeklyPrice, onPriceChange]);
+  const handleHoursChange = (serviceId: number, increment: number) => {
+    setServiceHours((prev) => ({
+      ...prev,
+      [serviceId]: Math.max(0, (prev[serviceId] || 0) + increment),
+    }));
+  };
 
   const handleDayChange = (day: string) => {
-    setSelectedDays((prev) =>
-      prev.includes(day) ? prev.filter((d) => d !== day) : [...prev, day],
-    );
+    setSelectedDays((prevDays) => {
+      if (prevDays.includes(day)) {
+        return prevDays.filter((d) => d !== day);
+      }
+      return [...prevDays, day];
+    });
   };
+
+  const handleSurfaceChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = Math.max(0, Number.parseInt(event.target.value) || 0);
+    setSurface(value);
+  };
+
+  const calculateDailyRate = useCallback(
+    (serviceRate: number, serviceId: number) => {
+      return serviceRate * (serviceHours[serviceId] || 0);
+    },
+    [serviceHours],
+  );
+
+  const calculateWeeklyRate = useCallback(
+    (serviceRate: number, serviceId: number) => {
+      return selectedDays.reduce((total, day) => {
+        const dailyRate = calculateDailyRate(serviceRate, serviceId);
+        return (
+          total + (day === "Sunday" ? dailyRate * SUNDAY_SURCHARGE : dailyRate)
+        );
+      }, 0);
+    },
+    [selectedDays, calculateDailyRate],
+  );
+
+  const calculateTotalWeeklyRate = useCallback(() => {
+    return basket.reduce((total, service) => {
+      return total + calculateWeeklyRate(service.tarif_horaire, service.id);
+    }, 0);
+  }, [basket, calculateWeeklyRate]);
+
+  const calculateTotalDailyRate = useCallback(() => {
+    return basket.reduce((total, service) => {
+      return total + calculateDailyRate(service.tarif_horaire, service.id);
+    }, 0);
+  }, [basket, calculateDailyRate]);
+
+  useEffect(() => {
+    onPriceChange(calculateTotalWeeklyRate());
+  }, [onPriceChange, calculateTotalWeeklyRate]);
 
   return (
     <div className="containerDevis">
       <div className="cardDevis">
         <h1>Étape 2</h1>
-        <h2>Renseignez-nous</h2>
-        <div className="cardDevis-header">
-          <div>
-            <label>
-              Surface (m²):
-              <input
-                type="number"
-                value={surface}
-                onChange={(e) => setSurface(Number(e.target.value))}
-              />
-            </label>
-          </div>
-          <div>
-            <h3>Fréquence</h3>
-            {[
-              "Lundi",
-              "Mardi",
-              "Mercredi",
-              "Jeudi",
-              "Vendredi",
-              "Samedi",
-              "Dimanche",
-            ].map((day) => (
-              <label key={day}>
-                <input
-                  type="checkbox"
-                  value={day}
-                  checked={selectedDays.includes(day)}
-                  onChange={() => handleDayChange(day)}
-                />
-                {day}
-              </label>
-            ))}
-          </div>
-          <div>
-            <h3>Plage horaire</h3>
-            <label>
-              Début:
-              <input
-                type="time"
-                value={startTime}
-                onChange={(e) => setStartTime(e.target.value)}
-              />
-            </label>
-            <label>
-              Fin:
-              <input
-                type="time"
-                value={endTime}
-                onChange={(e) => setEndTime(e.target.value)}
-              />
-            </label>
-          </div>
-          <div>
-            <h3>Date de démarrage</h3>
+        <div className="surface-input">
+          <label>
+            Surface de la maison (m²):
             <input
-              type="date"
-              id="startDate"
-              value={startDate}
-              onChange={(e) => setStartDate(e.target.value)}
+              type="number"
+              min="0"
+              value={surface}
+              onChange={handleSurfaceChange}
+              placeholder="Surface en m²"
+              className="surface-field"
             />
-          </div>
-          <div>
-            <h3>Prix estimé par jour: {calculatePrice()}€</h3>
-            <h3>Prix estimé par semaine: {calculateWeeklyPrice()}€</h3>
-          </div>
+          </label>
+        </div>
+        <div className="days-selection">
+          {[
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday",
+          ].map((day) => (
+            <label key={day} className="day-checkbox">
+              <input
+                type="checkbox"
+                checked={selectedDays.includes(day)}
+                onChange={() => handleDayChange(day)}
+              />
+              {day}
+            </label>
+          ))}
+        </div>
+        <div className="services-list">
+          {basket.map((service) => (
+            <div key={service.id} className="service-item">
+              <h3>{service.nom}</h3>
+              <p>Tarif horaire: {service.tarif_horaire}€/h</p>
+              <div className="hours-control">
+                <button
+                  type="button"
+                  onClick={() => handleHoursChange(service.id, -1)}
+                >
+                  -1h
+                </button>
+                <span>{serviceHours[service.id] || 0}h</span>
+                <button
+                  type="button"
+                  onClick={() => handleHoursChange(service.id, 1)}
+                >
+                  +1h
+                </button>
+              </div>
+              <p>
+                Total journalier:{" "}
+                {calculateDailyRate(service.tarif_horaire, service.id)}€/jour
+              </p>
+              <p>
+                Total hebdomadaire:{" "}
+                {calculateWeeklyRate(service.tarif_horaire, service.id)}
+                €/semaine
+              </p>
+            </div>
+          ))}
+        </div>
+        <div className="total-summary">
+          <h3>Récapitulatif des totaux</h3>
+          <p>
+            Total journalier de tous les services: {calculateTotalDailyRate()}
+            €/jour
+          </p>
+          <p>
+            Total hebdomadaire de tous les services:{" "}
+            {calculateTotalWeeklyRate()}€/semaine
+          </p>
         </div>
       </div>
     </div>

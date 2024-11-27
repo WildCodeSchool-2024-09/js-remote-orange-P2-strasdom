@@ -1,10 +1,11 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useBasket } from "../../../context/BasketContext";
 import "../../../App.css";
 
 interface RecapitulatifServicesProps {
   onServicesChange: (
-    services: { id: number; nom: string; tarif_horaire: number }[], // Déclaration de la fonction onServicesChange pour mettre à jour les services sélectionnés
+    services: { id: number; nom: string; tarif_horaire: number }[],
   ) => void;
 }
 
@@ -12,19 +13,30 @@ const RecapitulatifServices = ({
   onServicesChange,
 }: RecapitulatifServicesProps) => {
   const { basket, setBasket } = useBasket();
+  const navigate = useNavigate();
+  const [showHomeButton, setShowHomeButton] = useState(false);
 
   useEffect(() => {
     onServicesChange(basket);
-  }, [basket, onServicesChange]); // Mettre à jour les services sélectionnés
+  }, [basket, onServicesChange]);
 
   const removeService = (id: number) => {
-    setBasket(basket.filter((service) => service.id !== id)); // Retirer le service du panier
+    setBasket(basket.filter((service) => service.id !== id));
   };
 
   const totalTarifHoraire = basket.reduce(
-    (total, service) => total + service.tarif_horaire, // Ajouter le tarif horaire du service au total
+    (total, service) => total + service.tarif_horaire,
     0,
   );
+
+  const handleButtonClick = () => {
+    navigate("/devis");
+    setShowHomeButton(true);
+  };
+
+  const handleHomeButtonClick = () => {
+    navigate("/");
+  };
 
   return (
     <div className="container">
@@ -36,12 +48,20 @@ const RecapitulatifServices = ({
             <li key={service.id}>
               {service.nom} - {service.tarif_horaire}€/h
               <button type="button" onClick={() => removeService(service.id)}>
-                × {/* Bouton pour retirer le service Retirer */}
+                ×
               </button>
             </li>
           ))}
         </ul>
         <h3>Tarif Horaire: {totalTarifHoraire}€</h3>
+        <button type="button" id="buttonDevis" onClick={handleButtonClick}>
+          Simuler votre devis
+        </button>
+        {showHomeButton && (
+          <button type="button" id="buttonHome" onClick={handleHomeButtonClick}>
+            Retourner à la page d'accueil
+          </button>
+        )}
       </div>
     </div>
   );
