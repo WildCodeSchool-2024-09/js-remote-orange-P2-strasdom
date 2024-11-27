@@ -29,11 +29,6 @@ const TableauReservations = () => {
     setIsModalOpen(true);
   };
 
-  const handleEditClick = (reservation: Reservation) => {
-    setEditingReservation(reservation);
-    setIsModalOpen(true);
-  };
-
   const handleSaveClick = () => {
     if (editingReservation) {
       updateReservation(editingReservation);
@@ -103,7 +98,7 @@ const TableauReservations = () => {
             <th>Adresse</th>
             <th>Prix Total</th>
             <th>Services</th>
-            <th>Actions</th>
+            {/* <th>Actions</th> */}
           </tr>
         </thead>
         <tbody>
@@ -133,7 +128,7 @@ const TableauReservations = () => {
                   ))}
                 </ul>
               </td>
-              <td data-label="Actions">
+              {/* <td data-label="Actions">
                 <button
                   type="button"
                   onClick={() => handleEditClick(reservation)}
@@ -152,7 +147,7 @@ const TableauReservations = () => {
                 >
                   Envoyer par Email
                 </button>
-              </td>
+              </td> */}
             </tr>
           ))}
         </tbody>
