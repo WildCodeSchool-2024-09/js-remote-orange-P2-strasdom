@@ -11,6 +11,10 @@ function Header() {
 
   return (
     <header className="header">
+      <div className="hiddenHeader">
+        <h1 className="mainTitle">STRASDOM</h1>
+        <h2 className="subTitle">Votre confort, notre priorité</h2>
+      </div>
       <img
         src="/pictures/logo.jpg"
         className="logo"
@@ -23,7 +27,6 @@ function Header() {
         }}
         style={{ cursor: "pointer" }} // Ajouter un style de curseur pour indiquer que l'image est cliquable
       />
-      <h1 className="mainTitle">STRASDOM</h1>
       <nav>
         <ul className="nav-menu">
           <li>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useBasket } from "../../../context/BasketContext";
 import "../../../App.css";
@@ -14,7 +14,6 @@ const RecapitulatifServices = ({
 }: RecapitulatifServicesProps) => {
   const { basket, setBasket } = useBasket();
   const navigate = useNavigate();
-  const [showHomeButton, setShowHomeButton] = useState(false);
 
   useEffect(() => {
     onServicesChange(basket);
@@ -31,38 +30,34 @@ const RecapitulatifServices = ({
 
   const handleButtonClick = () => {
     navigate("/devis");
-    setShowHomeButton(true);
-  };
-
-  const handleHomeButtonClick = () => {
-    navigate("/");
   };
 
   return (
-    <div className="container">
-      <div className="card">
-        <h1>Étape 1</h1>
-        <h2>Récapitulatif des services</h2>
-        <ul>
+    <div className="Coordonneesmodule">
+      <div className="w3-light-grey w3-round-xlarge">
+        <div
+          className="w3-container w3-green w3-round-xlarge"
+          style={{ width: "25%" }}
+        >
+          1/4
+        </div>
+        <h1>ETAPE 1/4</h1>
+        <h2 className="titleh2">Récapitulatif des services</h2>
+        <ul className="recapservices">
           {basket.map((service) => (
             <li key={service.id}>
               {service.nom} - {service.tarif_horaire}€/h
               <button type="button" onClick={() => removeService(service.id)}>
-                ×
+                ❌
               </button>
             </li>
           ))}
         </ul>
         <h3>Tarif Horaire: {totalTarifHoraire}€</h3>
-        <button type="button" id="buttonDevis" onClick={handleButtonClick}>
-          Simuler votre devis
-        </button>
-        {showHomeButton && (
-          <button type="button" id="buttonHome" onClick={handleHomeButtonClick}>
-            Retourner à la page d'accueil
-          </button>
-        )}
       </div>
+      <button type="button" id="buttonDevis" onClick={handleButtonClick}>
+        Simuler votre devis
+      </button>
     </div>
   );
 };
