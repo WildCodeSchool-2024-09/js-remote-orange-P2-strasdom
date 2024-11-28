@@ -128,26 +128,6 @@ const TableauReservations = () => {
                   ))}
                 </ul>
               </td>
-              {/* <td data-label="Actions">
-                <button
-                  type="button"
-                  onClick={() => handleEditClick(reservation)}
-                >
-                  Modifier
-                </button>
-                <button
-                  type="button"
-                  onClick={() => handleDeleteClick(reservation.id)}
-                >
-                  Supprimer
-                </button>
-                <button
-                  type="button"
-                  onClick={() => handleEmailClick(reservation)}
-                >
-                  Envoyer par Email
-                </button>
-              </td> */}
             </tr>
           ))}
         </tbody>
@@ -155,7 +135,7 @@ const TableauReservations = () => {
 
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
         {editingReservation && (
-          <div>
+          <div className="containerModification">
             <h2>Modifier la Réservation</h2>
             <label>
               Nom:

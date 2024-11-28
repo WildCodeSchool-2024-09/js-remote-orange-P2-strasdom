@@ -69,10 +69,9 @@ tr:hover {
 .containerModification {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-around;
   margin-top: 20px;
-  size-adjust: auto;
-  height: 100%;
+  width: 90%;
 }
 
 /* Bouton */
