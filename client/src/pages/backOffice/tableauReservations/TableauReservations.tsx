@@ -29,11 +29,6 @@ const TableauReservations = () => {
     setIsModalOpen(true);
   };
 
-  const handleEditClick = (reservation: Reservation) => {
-    setEditingReservation(reservation);
-    setIsModalOpen(true);
-  };
-
   const handleSaveClick = () => {
     if (editingReservation) {
       updateReservation(editingReservation);
@@ -91,8 +86,8 @@ const TableauReservations = () => {
   };
 
   return (
-    <div className="container">
-      <h2 className="tableauTitle">Tableau des Réservations</h2>
+    <div className="tableau-reservations">
+      <h2>Tableau des Réservations</h2>
       <table>
         <thead>
           <tr>
@@ -103,7 +98,7 @@ const TableauReservations = () => {
             <th>Adresse</th>
             <th>Prix Total</th>
             <th>Services</th>
-            <th>Actions</th>
+            {/* <th>Actions</th> */}
           </tr>
         </thead>
         <tbody>
@@ -133,7 +128,7 @@ const TableauReservations = () => {
                   ))}
                 </ul>
               </td>
-              <td data-label="Actions">
+              {/* <td data-label="Actions">
                 <button
                   type="button"
                   onClick={() => handleEditClick(reservation)}
@@ -152,7 +147,7 @@ const TableauReservations = () => {
                 >
                   Envoyer par Email
                 </button>
-              </td>
+              </td> */}
             </tr>
           ))}
         </tbody>
@@ -160,7 +155,7 @@ const TableauReservations = () => {
 
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
         {editingReservation && (
-          <div className="containerModification">
+          <div>
             <h2>Modifier la Réservation</h2>
             <label>
               Nom:
@@ -223,19 +218,17 @@ const TableauReservations = () => {
                 </li>
               ))}
             </ul>
-            <button type="button" className="button" onClick={handleSaveClick}>
+            <button type="button" onClick={handleSaveClick}>
               Sauvegarder
             </button>
             <button
               type="button"
-              className="button"
               onClick={() => handleDeleteClick(editingReservation.id)}
             >
               Supprimer
             </button>
             <button
               type="button"
-              className="button"
               onClick={() => handleEmailClick(editingReservation)}
             >
               Envoyer par Email
