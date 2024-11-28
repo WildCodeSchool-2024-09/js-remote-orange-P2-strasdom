@@ -6,6 +6,7 @@ interface Reservation {
   userInfo: UserInfo;
   selectedServices: { id: number; nom: string; tarif_horaire: number }[];
   totalWeeklyPrice: number;
+  comment: string;
 }
 
 interface ReservationContextProps {
