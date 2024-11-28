@@ -100,7 +100,7 @@ const TableauReservations = () => {
             <th>Prix Total</th>
             <th>Services</th>
             <th>Commentaire</th>
-            <th>Actions</th>
+            {/* <th>Actions</th> */}
           </tr>
         </thead>
         <tbody>
@@ -131,20 +131,6 @@ const TableauReservations = () => {
                 </ul>
               </td>
               <td data-label="Commentaire">{reservation.comment}</td>
-              <td data-label="Actions">
-                <button
-                  type="button"
-                  onClick={() => handleDeleteClick(reservation.id)}
-                >
-                  Supprimer
-                </button>
-                <button
-                  type="button"
-                  onClick={() => handleEmailClick(reservation)}
-                >
-                  Envoyer par Email
-                </button>
-              </td>
             </tr>
           ))}
         </tbody>
