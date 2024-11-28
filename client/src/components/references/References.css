@@ -61,22 +61,23 @@
   color: #ffd700;
 }
 
-/* Styles pour la barre de défilement */
-.containerCard::-webkit-scrollbar {
-  height: 8px; /* Barre horizontale */
+/* Style des barres de défilement */
+.containerReference::-webkit-scrollbar {
+  height: 8px;
 }
 
-.containerCard::-webkit-scrollbar-thumb {
-  background: #888; /* Couleur du pouce de la barre de défilement */
+.containerReference::-webkit-scrollbar-track {
+  background: #f1f1f1;
   border-radius: 4px;
 }
 
-.containerCard::-webkit-scrollbar-thumb:hover {
-  background: #555; /* Couleur au survol */
+.containerReference::-webkit-scrollbar-thumb {
+  background: #658243;
+  border-radius: 4px;
 }
 
-.containerCard::-webkit-scrollbar-track {
-  background: #222; /* Fond de la barre de défilement */
+.containerReference::-webkit-scrollbar-thumb:hover {
+  background: #4e3728;
 }
 
 /* Styles de la boîte de dialogue */
@@ -115,12 +116,14 @@
 @media (max-width: 768px) {
   .cardsWrapper {
     justify-content: center;
-    max-height: 80vh; /* Limite la hauteur pour avoir un scroll */
+    max-height: 80vh;
+    /* Limite la hauteur pour avoir un scroll */
     overflow-x: auto;
     overflow-y: hidden;
   }
+
   .containerReference {
-    width: 90%;
+    width: 96%;
     max-height: 80vh;
   }
 }
