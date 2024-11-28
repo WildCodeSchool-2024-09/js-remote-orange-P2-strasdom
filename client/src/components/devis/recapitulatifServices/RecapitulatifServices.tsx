@@ -34,18 +34,18 @@ const RecapitulatifServices = ({
 
   return (
     <div className="Coordonneesmodule">
-      <div className="w3-light-grey w3-round-xlarge">
+      <div className="cardmodule">
         <div
           className="w3-container w3-green w3-round-xlarge"
           style={{ width: "25%" }}
         >
-          1/4
+          1
         </div>
         <h1>ETAPE 1/4</h1>
         <h2 className="titleh2">Récapitulatif des services</h2>
         <ul className="recapservices">
           {basket.map((service) => (
-            <li key={service.id}>
+            <li className="li" key={service.id}>
               {service.nom} - {service.tarif_horaire}€/h
               <button type="button" onClick={() => removeService(service.id)}>
                 ❌
@@ -55,7 +55,7 @@ const RecapitulatifServices = ({
         </ul>
         <h3>Tarif Horaire: {totalTarifHoraire}€</h3>
       </div>
-      <button type="button" id="buttonDevis" onClick={handleButtonClick}>
+      <button type="button" className="button" onClick={handleButtonClick}>
         Simuler votre devis
       </button>
     </div>

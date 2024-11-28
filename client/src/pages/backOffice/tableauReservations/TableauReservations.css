@@ -65,3 +65,39 @@ tr:hover {
     text-align: left;
   }
 }
+
+.containerModification {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-top: 20px;
+  size-adjust: auto;
+  height: 100%;
+}
+
+/* Bouton */
+.button {
+  align-self: center;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #658243;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #43826d;
+}
+
+/* Nouveau style pour le bouton actif */
+.button.active {
+  background-color: #4e3728;
+}
+
+.button.active:hover {
+  background-color: #658243;
+}

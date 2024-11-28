@@ -34,7 +34,7 @@ const Coordonnees = ({ onUserInfoChange }: CoordonneesProps) => {
           className="w3-container w3-green w3-round-xlarge"
           style={{ width: "75%" }}
         >
-          3/4
+          1 --- 2 --- 3
         </div>
         <h1>ETAPE 3/4</h1>
         <h2>Vos informations</h2>
@@ -79,7 +79,7 @@ const Coordonnees = ({ onUserInfoChange }: CoordonneesProps) => {
               />
             </label>
           </div>
-          <button type="submit" id="button">
+          <button type="submit" className="button">
             Soumettre
           </button>
         </form>

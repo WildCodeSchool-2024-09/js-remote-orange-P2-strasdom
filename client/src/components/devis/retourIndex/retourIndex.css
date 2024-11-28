@@ -1,6 +1,18 @@
 @import "../../../App.css";
 
-.Coordonneesmodule {
+.containerIndex {
+  background-color: whitesmoke;
+  color: rgb(0, 0, 0);
+  padding: 20px;
+  width: 90%;
+  margin: 0 auto;
+  max-width: 800px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.cardIndex {
   background-color: #fff;
   color: #4e3728;
   padding: 3%;
@@ -8,26 +20,16 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
   justify-content: space-between;
   height: 100%;
   width: 100%;
 }
 
-.cardmodule {
-  border-radius: 10px;
-  padding: 20px;
-  width: 90%;
-  margin: 0 auto;
-  max-width: 800px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  color: rgb(0, 0, 0);
-  text-align: center;
-}
-
-#progressBar {
-  display: flex;
-  align-items: left;
+.recapservices {
+  list-style: none;
+  text-decoration: none;
+  font-size: 1.5rem;
 }
 
 /* Bouton */

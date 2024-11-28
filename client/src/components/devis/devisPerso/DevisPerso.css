@@ -10,20 +10,7 @@
   width: 100px;
 }
 
-.containerDevis {
-  background-color: whitesmoke;
-  color: rgb(0, 0, 0);
-  padding: 20px;
-  width: 90%;
-  margin: 0 auto;
-  max-width: 800px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  text-align: center;
-}
-
-/* Style de base des cartes */
-.cardDevis {
+.Coordonneesmodule {
   background-color: #fff;
   color: #4e3728;
   padding: 3%;
@@ -31,16 +18,53 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  align-items: left;
+  align-items: center;
   justify-content: space-between;
   height: 100%;
   width: 100%;
 }
 
-/* Description, tarif et disponibilité */
-h1 {
-  font-size: 2rem;
-  margin: 5px 0;
+.cardmodule {
+  border-radius: 10px;
+  padding: 20px;
+  width: 90%;
+  margin: 0 auto;
+  max-width: 800px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+
+#progressBar {
+  display: flex;
+  align-items: left;
+}
+
+/* Bouton */
+.button {
+  align-self: center;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #658243;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #43826d;
+}
+
+/* Nouveau style pour le bouton actif */
+.button.active {
+  background-color: #4e3728;
+}
+
+.button.active:hover {
+  background-color: #658243;
 }
 
 /* Bouton */

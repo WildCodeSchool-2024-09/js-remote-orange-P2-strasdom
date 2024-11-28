@@ -73,14 +73,14 @@ const DevisPerso = ({ onPriceChange }: DevisPersoProps) => {
   }, [onPriceChange, calculateTotalWeeklyRate]);
 
   return (
-    <div className="containerDevis">
-      <div className="cardDevis">
+    <div className="Coordonneesmodule">
+      <div className="cardmodule">
         <div
           className="w3-container w3-green w3-round-xlarge"
           id="progressBar"
           style={{ width: "50%" }}
         >
-          2/4
+          1 --- 2
         </div>
         <h1>ETAPE 2/4</h1>
         <div className="surface-input">
@@ -124,7 +124,7 @@ const DevisPerso = ({ onPriceChange }: DevisPersoProps) => {
               <div className="hours-control">
                 <button
                   type="button"
-                  className="hours-button"
+                  className="button"
                   onClick={() => handleHoursChange(service.id, -1)}
                 >
                   -1h
@@ -132,7 +132,7 @@ const DevisPerso = ({ onPriceChange }: DevisPersoProps) => {
                 <span>{serviceHours[service.id] || 0}h</span>
                 <button
                   type="button"
-                  className="hours-button"
+                  className="button"
                   onClick={() => handleHoursChange(service.id, 1)}
                 >
                   +1h
