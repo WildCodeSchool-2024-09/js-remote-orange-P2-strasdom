@@ -115,5 +115,12 @@
 @media (max-width: 768px) {
   .cardsWrapper {
     justify-content: center;
+    max-height: 80vh; /* Limite la hauteur pour avoir un scroll */
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+  .containerReference {
+    width: 90%;
+    max-height: 80vh;
   }
 }
