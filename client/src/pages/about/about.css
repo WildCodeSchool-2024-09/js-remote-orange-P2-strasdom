@@ -1,7 +1,8 @@
 @import "../../App.css";
 
 .aboutus-container {
-  background-color: #444; /* Marron clair */
+  background-color: #444;
+  /* Marron clair */
   border-radius: 10px;
   padding: 20px;
   width: 90%;
@@ -15,4 +16,9 @@
 
 .aboutus-card {
   background-color: whitesmoke;
+}
+
+.aboutus-body {
+  margin-left: 2%;
+  margin-right: 2%;
 }
