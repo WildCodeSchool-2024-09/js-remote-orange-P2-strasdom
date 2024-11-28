@@ -12,9 +12,8 @@ function Header() {
   return (
     <header className="header">
       <h1 className="mainTitle">STRASDOM</h1>
-      <div className="hiddenHeader">
-        <h2 className="subTitle">Votre confort, notre priorité</h2>
-      </div>
+      <h2 className="subTitle">Votre confort, notre priorité</h2>
+      <div className="hiddenHeader" />
       <img
         src="/pictures/logo.jpg"
         className="logo"
