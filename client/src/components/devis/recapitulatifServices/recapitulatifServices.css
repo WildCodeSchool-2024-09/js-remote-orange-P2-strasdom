@@ -80,3 +80,29 @@
   margin-top: 10px;
   transition: background-color 0.3s ease;
 }
+
+.recapservices {
+  list-style: none;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+@media screen and (max-width: 768px) {
+  .recapservices {
+    font-size: 1rem;
+  }
+}
+
+.li {
+  font-size: 0, 5rem;
+}
+
+/* Description, tarif et disponibilité */
+.cardService .description,
+.cardService .tarif,
+.cardService .disponibilité {
+  font-size: 0.5rem;
+  margin: 5px 0;
+  width: 90%;
+  margin: 0;
+  flex-shrink: 0;
+}

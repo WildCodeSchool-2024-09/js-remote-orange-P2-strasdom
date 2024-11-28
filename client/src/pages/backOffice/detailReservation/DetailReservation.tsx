@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useReservation } from "../../../context/ReservationContext";
+import "./DetailReservation.css";
 
 const DetailReservation = () => {
   const { id } = useParams<{ id: string }>();
@@ -16,6 +17,8 @@ const DetailReservation = () => {
       <p>ID: {reservation.id}</p>
       <p>Nom: {reservation.userInfo.name}</p>
       <p>Email: {reservation.userInfo.email}</p>
+      <p>Téléphone: {reservation.userInfo.phone}</p>
+      <p>Adresse: {reservation.userInfo.address}</p>
       <h3>Services</h3>
       <ul>
         {reservation.selectedServices.map((service) => (
@@ -24,6 +27,7 @@ const DetailReservation = () => {
           </li>
         ))}
       </ul>
+      <p>Commentaire: {reservation.comment}</p>
       <p>Prix Total: {reservation.totalWeeklyPrice}€</p>
     </div>
   );

@@ -1,0 +1,10 @@
+@import "./backOffice.css";
+
+.back-office-container {
+  display: flex;
+  flex-direction: column;
+  background-color: --var(container-color);
+  gap: 20px;
+  padding: 20px;
+  margin: 10px;
+}

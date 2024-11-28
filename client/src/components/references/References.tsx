@@ -80,7 +80,9 @@ const ReferenceProps = [
 function ReferencesCustomer() {
   return (
     <div className="containerReference">
-      <h1 className="title">Références clients</h1>
+      <h1 className="title" id="ourReferencees">
+        Références clients
+      </h1>
       <div className="cardsWrapper">
         {ReferenceProps.map((reference) => (
           <div key={reference.client_id} className="containerReferenceCard">

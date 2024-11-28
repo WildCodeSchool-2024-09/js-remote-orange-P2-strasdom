@@ -5,9 +5,11 @@ import "./devisPages.css";
 
 function DevisPages() {
   return (
-    <div>
+    <div className="legals-page">
       <Header />
-      <Devis />
+      <div className="legals-container">
+        <Devis />
+      </div>
       <Footer />
     </div>
   );

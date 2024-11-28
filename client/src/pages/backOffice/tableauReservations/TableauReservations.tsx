@@ -15,6 +15,7 @@ interface Reservation {
   userInfo: UserInfo;
   selectedServices: { id: number; nom: string; tarif_horaire: number }[];
   totalWeeklyPrice: number;
+  comment: string; // Ajouter le champ commentaire
 }
 
 const TableauReservations = () => {
@@ -42,7 +43,9 @@ const TableauReservations = () => {
     setIsModalOpen(false);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     if (editingReservation) {
       const { name, value } = e.target;
       const [field, index] = name.split("-");
@@ -62,10 +65,7 @@ const TableauReservations = () => {
       } else {
         setEditingReservation({
           ...editingReservation,
-          userInfo: {
-            ...editingReservation.userInfo,
-            [name]: value,
-          },
+          [name]: value,
         });
       }
     }
@@ -80,6 +80,7 @@ const TableauReservations = () => {
       Adresse: ${reservation.userInfo.address}
       Services:
       ${reservation.selectedServices.map((service) => `${service.nom} - ${service.tarif_horaire}€/h`).join("\n")}
+      Commentaire: ${reservation.comment}
       Prix Total: ${reservation.totalWeeklyPrice}€
     `;
     window.location.href = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
@@ -98,7 +99,8 @@ const TableauReservations = () => {
             <th>Adresse</th>
             <th>Prix Total</th>
             <th>Services</th>
-            {/* <th>Actions</th> */}
+            <th>Commentaire</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -128,13 +130,8 @@ const TableauReservations = () => {
                   ))}
                 </ul>
               </td>
-              {/* <td data-label="Actions">
-                <button
-                  type="button"
-                  onClick={() => handleEditClick(reservation)}
-                >
-                  Modifier
-                </button>
+              <td data-label="Commentaire">{reservation.comment}</td>
+              <td data-label="Actions">
                 <button
                   type="button"
                   onClick={() => handleDeleteClick(reservation.id)}
@@ -147,7 +144,7 @@ const TableauReservations = () => {
                 >
                   Envoyer par Email
                 </button>
-              </td> */}
+              </td>
             </tr>
           ))}
         </tbody>
@@ -155,7 +152,7 @@ const TableauReservations = () => {
 
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
         {editingReservation && (
-          <div>
+          <div className="containerModification">
             <h2>Modifier la Réservation</h2>
             <label>
               Nom:
@@ -218,6 +215,14 @@ const TableauReservations = () => {
                 </li>
               ))}
             </ul>
+            <label>
+              Commentaire:
+              <textarea
+                name="comment"
+                value={editingReservation.comment}
+                onChange={handleChange}
+              />
+            </label>
             <button type="button" onClick={handleSaveClick}>
               Sauvegarder
             </button>
