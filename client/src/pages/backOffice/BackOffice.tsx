@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import { ReservationProvider } from "../../context/ReservationContext"; // Import ReservationProvider
+import Footer from "../../components/footer/Footer";
+import Header from "../../components/header/Header";
+import { ReservationProvider } from "../../context/ReservationContext";
 import TableauReservations from "./tableauReservations/TableauReservations";
 
 const BackOffice = () => {
@@ -11,6 +13,7 @@ const BackOffice = () => {
 
   return (
     <ReservationProvider>
+      <Header />
       <div>
         <h1>Back Office</h1>
         <button type="button" onClick={handleRetourAppClick}>
@@ -18,6 +21,7 @@ const BackOffice = () => {
         </button>
         <TableauReservations />
       </div>
+      <Footer />
     </ReservationProvider>
   );
 };

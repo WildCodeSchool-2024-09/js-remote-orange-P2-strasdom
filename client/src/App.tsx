@@ -1,5 +1,4 @@
 import Company from "./components/company/Company";
-import Devis from "./components/devis/Devis";
 import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
 import ReferencesCustomer from "./components/references/References";
@@ -12,7 +11,6 @@ function App() {
     <div className="App">
       <Header />
       <ServiceModule />
-      <Devis />
       <Company />
       <ReferencesCustomer />
       <Footer />

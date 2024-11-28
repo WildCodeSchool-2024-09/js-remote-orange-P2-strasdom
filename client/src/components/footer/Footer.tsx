@@ -25,6 +25,14 @@ function Footer() {
     setShowPasswordDialog(true);
   };
 
+  const handleAboutUsClick = () => {
+    navigate("/about"); // Naviguer vers la route racine où le composant App est rendu
+  };
+
+  const handlegalsClick = () => {
+    navigate("/legals"); // Naviguer vers la route racine où le composant App est rendu
+  };
+
   return (
     <div className="footer-container">
       {showPasswordDialog && (
@@ -45,10 +53,10 @@ function Footer() {
       <button type="button" id="button" onClick={navigateToBackOffice}>
         Go to BackOffice
       </button>
-      <button type="button" id="button">
+      <button type="button" id="button" onClick={handleAboutUsClick}>
         About Us
       </button>
-      <button type="button" id="button">
+      <button type="button" id="button" onClick={handlegalsClick}>
         Mentions Légales
       </button>
     </div>
