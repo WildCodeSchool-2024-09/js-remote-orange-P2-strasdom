@@ -9,6 +9,11 @@
   padding: 15px;
 }
 
+.switchHeader {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .subTitle {
   color: white;
   font-size: 150%;
