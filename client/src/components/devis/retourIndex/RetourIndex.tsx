@@ -1,5 +1,6 @@
 import type { UserInfo } from "../coordonnees/Coordonnees";
 import "../../../App.css";
+import "./retourIndex.css";
 
 interface RetourIndexProps {
   // Déclaration de l'interface RetourIndexProps
@@ -26,9 +27,10 @@ const RetourIndex = ({
   };
 
   return (
-    <div className="ConfirmationModule">
-      <div className="card">
-        <h1>Confirmation</h1>
+    <div className="containerIndex">
+      <div className="cardIndex">
+        <h1>Votre demande est prise en compte!</h1>
+        <h1>Un conseiller prendra contact avec vous sous 24h</h1>
         <h2>Merci pour votre confiance, voici le devis imprimable</h2>
         <div>
           <h3>Vos informations</h3>
@@ -39,7 +41,7 @@ const RetourIndex = ({
         </div>
         <div>
           <h3>Services sélectionnés</h3>
-          <ul>
+          <ul className="recapservices">
             {selectedServices.map(
               (
                 service, // Afficher les services sélectionnés
@@ -55,10 +57,10 @@ const RetourIndex = ({
           <h3>Prix total à la semaine</h3>
           <p>{totalWeeklyPrice}€</p>
         </div>
-        <button type="button" id="button" onClick={handlePrint}>
+        <button type="button" className="button" onClick={handlePrint}>
           Imprimer le devis
         </button>
-        <button type="button" id="button" onClick={handleReturnToIndex}>
+        <button type="button" className="button" onClick={handleReturnToIndex}>
           Retour à l'index
         </button>
       </div>

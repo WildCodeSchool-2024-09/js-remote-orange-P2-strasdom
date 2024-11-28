@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./Coordonnees.css";
 
 export interface UserInfo {
   name: string;
@@ -28,8 +29,14 @@ const Coordonnees = ({ onUserInfoChange }: CoordonneesProps) => {
 
   return (
     <div className="Coordonneesmodule">
-      <div className="card">
-        <h1>Étape 3</h1>
+      <div className="cardmodule">
+        <div
+          className="w3-container w3-green w3-round-xlarge"
+          style={{ width: "75%" }}
+        >
+          1 --- 2 --- 3
+        </div>
+        <h1>ETAPE 3/4</h1>
         <h2>Vos informations</h2>
         <form onSubmit={handleSubmit}>
           <div>
@@ -72,12 +79,9 @@ const Coordonnees = ({ onUserInfoChange }: CoordonneesProps) => {
               />
             </label>
           </div>
-          <button type="submit" id="button">
+          <button type="submit" className="button">
             Soumettre
           </button>
-          {""}
-          {/* Bouton pour soumettre le
-          formulaire */}
         </form>
       </div>
     </div>

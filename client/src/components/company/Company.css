@@ -1,5 +1,3 @@
-@import "./Company.css";
-
 /* Container principal */
 .company-container {
   background-color: #444; /* Marron clair */
@@ -12,6 +10,7 @@
   color: rgb(0, 0, 0);
   text-align: center;
 }
+
 .company-card {
   background-color: whitesmoke;
 }
