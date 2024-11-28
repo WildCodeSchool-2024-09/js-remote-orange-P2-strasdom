@@ -160,7 +160,7 @@ const TableauReservations = () => {
 
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
         {editingReservation && (
-          <div className="container">
+          <div className="containerModification">
             <h2>Modifier la Réservation</h2>
             <label>
               Nom:
@@ -223,17 +223,19 @@ const TableauReservations = () => {
                 </li>
               ))}
             </ul>
-            <button type="button" onClick={handleSaveClick}>
+            <button type="button" className="button" onClick={handleSaveClick}>
               Sauvegarder
             </button>
             <button
               type="button"
+              className="button"
               onClick={() => handleDeleteClick(editingReservation.id)}
             >
               Supprimer
             </button>
             <button
               type="button"
+              className="button"
               onClick={() => handleEmailClick(editingReservation)}
             >
               Envoyer par Email

@@ -31,9 +31,9 @@ const Confirmation = ({
           className="w3-container w3-green w3-round-xlarge"
           style={{ width: "100%" }}
         >
-          4/4
+          1 --- 2 --- 3 --- 4
         </div>
-        <h1>ETAPE 3/4</h1>
+        <h1>ETAPE 4/4</h1>
         <h1>Confirmation</h1>
         <div>
           <h2>Vos informations:</h2>
@@ -56,12 +56,7 @@ const Confirmation = ({
           <h2>Prix total à la semaine:</h2>
           <p>{totalWeeklyPrice}€</p>
         </div>
-        <button
-          type="button"
-          className="button"
-          id="button"
-          onClick={handleConfirm}
-        >
+        <button type="button" className="button" onClick={handleConfirm}>
           Confirmer
         </button>
       </div>

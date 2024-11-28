@@ -1,7 +1,31 @@
-@import "../../../App.css";
+@import "../../App.css";
+
+.devis-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
 .navigation-buttons {
   display: flex;
-  justify-content: center;
-  margin-top: 20px;
+  justify-content: center; /* Centrer les boutons horizontalement */
+  align-items: center; /* Centrer les boutons verticalement */
+  width: 100%;
+  gap: 10px; /* Ajouter un espace entre les boutons */
+}
+
+.button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #658243;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #43826d;
 }

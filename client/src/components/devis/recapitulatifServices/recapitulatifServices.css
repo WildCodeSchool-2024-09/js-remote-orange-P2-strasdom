@@ -1,8 +1,31 @@
 @import "../../../App.css";
 
-/* Style de base des cartes */
+.surface-input {
+  margin-bottom: 20px;
+}
 
-.cardService {
+.surface-field {
+  margin-left: 10px;
+  padding: 5px;
+  width: 100px;
+}
+
+.Coordonneesmodule {
+  background-color: #fff;
+  color: #4e3728;
+  padding: 3%;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 150%;
+  height: 100%;
+  width: 100%;
+}
+
+.cardmodule {
   border-radius: 10px;
   padding: 20px;
   width: 90%;
@@ -13,44 +36,9 @@
   text-align: center;
 }
 
-/* Titre de la carte */
-.cardService h2 {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-  color: #658243;
-}
-
-.titleh2 {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-  color: #658243;
-}
-
 #progressBar {
   display: flex;
   align-items: left;
-}
-
-.recapservices {
-  list-style: none;
-  text-decoration: none;
-  font-size: 1.5rem;
-}
-@media screen and (max-width: 768px) {
-  .recapservices {
-    font-size: 1rem;
-  }
-}
-
-/* Description, tarif et disponibilité */
-.cardService .description,
-.cardService .tarif,
-.cardService .disponibilité {
-  font-size: 1rem;
-  margin: 5px 0;
-  width: 90%;
-  margin: 0;
-  flex-shrink: 0;
 }
 
 /* Bouton */
@@ -78,4 +66,44 @@
 
 .button.active:hover {
   background-color: #658243;
+}
+
+/* Bouton */
+.hours-button {
+  align-self: center;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #658243;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.recapservices {
+  list-style: none;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+@media screen and (max-width: 768px) {
+  .recapservices {
+    font-size: 1rem;
+  }
+}
+
+.li {
+  font-size: 0, 5rem;
+}
+
+/* Description, tarif et disponibilité */
+.cardService .description,
+.cardService .tarif,
+.cardService .disponibilité {
+  font-size: 0.5rem;
+  margin: 5px 0;
+  width: 90%;
+  margin: 0;
+  flex-shrink: 0;
 }
