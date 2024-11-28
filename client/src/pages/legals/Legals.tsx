@@ -4,7 +4,7 @@ import "./legals.css";
 
 function Legals() {
   return (
-    <div>
+    <div className="legals-page">
       <Header />
       <div className="legals-container">
         <div className="legals-card">

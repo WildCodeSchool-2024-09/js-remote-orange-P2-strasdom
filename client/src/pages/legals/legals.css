@@ -18,3 +18,9 @@
 .legals-card {
   background-color: whitesmoke;
 }
+
+.legals-page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
