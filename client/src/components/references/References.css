@@ -61,26 +61,6 @@
   color: #ffd700;
 }
 
-/* Style des barres de défilement */
-.containerReference::-webkit-scrollbar {
-  width: 8px;
-  /* For vertical scrollbar, use width instead of height */
-}
-
-.containerReference::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 4px;
-}
-
-.containerReference::-webkit-scrollbar-thumb {
-  background: #658243;
-  border-radius: 4px;
-}
-
-.containerReference::-webkit-scrollbar-thumb:hover {
-  background: #4e3728;
-}
-
 /* Styles de la boîte de dialogue */
 .dialog-overlay {
   position: fixed;
@@ -115,7 +95,7 @@
   overflow-y: auto;
 }
 
-/* Ajout des styles de scrollbar identiques */
+/* Ajout de scrollbar */
 .cardsWrapper::-webkit-scrollbar {
   height: 8px;
 }
