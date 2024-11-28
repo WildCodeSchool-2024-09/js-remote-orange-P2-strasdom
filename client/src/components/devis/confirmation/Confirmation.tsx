@@ -3,25 +3,30 @@ import type { UserInfo } from "../coordonnees/Coordonnees";
 import "./Confirmation.css";
 
 interface ConfirmationProps {
-  // Déclaration de l'interface ConfirmationProps pour les propriétés du composant Confirmation
-  userInfo: UserInfo; // Déclaration des informations utilisateur
-  selectedServices: { id: number; nom: string; tarif_horaire: number }[]; // Déclaration des services sélectionnés
-  totalWeeklyPrice: number; // Déclaration du prix total hebdomadaire
-  onConfirm: () => void; // Déclaration de la fonction onConfirm pour gérer la confirmation
+  userInfo: UserInfo;
+  selectedServices: { id: number; nom: string; tarif_horaire: number }[];
+  totalWeeklyPrice: number;
+  onConfirm: () => void;
 }
 
 const Confirmation = ({
-  // Déclaration du composant Confirmation
   userInfo,
   selectedServices,
-  totalWeeklyPrice, // Récupérer les informations utilisateur, les services sélectionnés et le prix total hebdomadaire
-  onConfirm, // Récupérer la fonction onConfirm
+  totalWeeklyPrice,
+  onConfirm,
 }: ConfirmationProps) => {
   const { addReservation } = useReservation();
 
   const handleConfirm = () => {
-    addReservation({ id: 0, userInfo, selectedServices, totalWeeklyPrice }); // Include ID
-    onConfirm(); // Appeler la fonction onConfirm après confirmation
+    const comment = ""; // Vous pouvez initialiser le commentaire ici
+    addReservation({
+      id: 0,
+      userInfo,
+      selectedServices,
+      totalWeeklyPrice,
+      comment,
+    }); // Inclure le champ comment
+    onConfirm();
   };
 
   return (
