@@ -1,8 +1,7 @@
 @import "../../App.css";
 
 .aboutus-container {
-  background-color: #444;
-  /* Marron clair */
+  background-color: #444; /* Marron clair */
   border-radius: 10px;
   padding: 20px;
   width: 90%;
@@ -11,6 +10,8 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   color: rgb(0, 0, 0);
   text-align: center;
+  margin: auto;
+  padding: 10px;
   margin-top: 20px;
 }
 
@@ -21,4 +22,7 @@
 .aboutus-body {
   margin-left: 2%;
   margin-right: 2%;
+  height: 75vh;
+  display: flex;
+  flex-direction: column;
 }
